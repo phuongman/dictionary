@@ -6,11 +6,12 @@ public class App {
 
     public static Integer a = 10;
     public static Integer b = 5;
-    private static final String[] arrayChoices = {"Exit", "Add", "Remove", "Update", "Display", "Lookup", "Search", "Game", "Import from file", "Export to file"};
+    private static final String[] arrayChoices = { "Exit", "Add", "Remove", "Update", "Display", "Lookup", "Search",
+            "Game", "Import from file", "Export to file" };
 
     public static void PrintChoices() {
         System.out.println("Welcome to My Application!");
-        for(int i = 0; i < arrayChoices.length; i++) {
+        for (int i = 0; i < arrayChoices.length; i++) {
             System.out.println("[" + i + "] " + arrayChoices[i]);
         }
         return;
@@ -22,12 +23,13 @@ public class App {
     public static void main(String[] args) {
         PrintChoices();
         boolean checkChoice = false;
-        while(checkChoice != true) {
+        while (checkChoice != true) {
             System.out.print("Your action: ");
             int choice = Inputer.InputNextInt();
-            if(choice >= 0 && choice <= 9) checkChoice = true;
-            switch(choice) {
-                case 0: 
+            if (choice >= 0 && choice <= 9)
+                checkChoice = true;
+            switch (choice) {
+                case 0:
                     Manager.Exit();
                     break;
                 case 1:
@@ -59,11 +61,10 @@ public class App {
                     break;
                 default:
                     System.out.println("Action not supported");
-            
+
             }
         }
-        
-    }
 
+    }
 
 }

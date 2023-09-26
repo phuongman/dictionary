@@ -7,12 +7,12 @@ public class Word {
     /**
      * Constructor.
      * 
-     * @param _wordTarget  English word
-     * @param _wordExplain meaning of the word in Vietnamese
+     * @param wordTarget  English word
+     * @param wordExplain meaning of the word in Vietnamese
      */
-    public Word(String _wordTarget, String _wordExplain) {
-        this.wordTarget = _wordTarget;
-        this.wordExplain = _wordExplain;
+    public Word(String wordTarget, String wordExplain) {
+        this.wordTarget = wordTarget;
+        this.wordExplain = wordExplain;
     }
 
     public String getWordTarget() {
@@ -23,8 +23,8 @@ public class Word {
         return this.wordExplain;
     }
 
-    public void setWordExplain(String _wordExplain) {
-        this.wordExplain = _wordExplain;
+    public void setWordExplain(String wordExplain) {
+        this.wordExplain = wordExplain;
         return;
     }
 }
