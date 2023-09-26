@@ -1,5 +1,7 @@
 package dictionary;
 
+import dictionary.Controller.*;
+
 public class App {
 
     public static Integer a = 10;
@@ -18,7 +20,6 @@ public class App {
      * @param args
      */
     public static void main(String[] args) {
-        if(a != b) System.out.print(1);
         PrintChoices();
         boolean checkChoice = false;
         while(checkChoice != true) {

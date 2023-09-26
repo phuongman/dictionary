@@ -1,4 +1,4 @@
-package dictionary.data;
+package dictionary.Model;
 
 public class Word {
     private final String wordTarget;

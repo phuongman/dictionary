@@ -1,4 +1,4 @@
-package dictionary;
+package dictionary.Controller;
 
 public class Manager {
 
