@@ -76,15 +76,15 @@ public class NormalDictionary {
             vietnameseSize = Math.max(vietnameseSize, words.get(i).getwordMeaning().length());
         }
         noSize = Math.max(noSize, String.valueOf(words.size()).length());
-        String result = "";
-        result += Inputer.compressWordplusSpace("No", noSize) + " | ";
-        result += Inputer.compressWordplusSpace("English", englishSize) + " | Vietnamese\n";
+        StringBuilder result = new StringBuilder();
+        result.append(Inputer.compressWordplusSpace("No", noSize) + " | ");
+        result.append(Inputer.compressWordplusSpace("English", englishSize) + " | Vietnamese\n");
         for (int i = 0; i < words.size(); i++) {
-            result += Inputer.compressWordplusSpace(String.valueOf(i + 1), noSize) + " | ";
-            result += Inputer.compressWordplusSpace(words.get(i).getWordTarget(), englishSize) + " | ";
-            result += words.get(i).getwordMeaning() + "\n";
+            result.append(Inputer.compressWordplusSpace(String.valueOf(i + 1), noSize) + " | ");
+            result.append(Inputer.compressWordplusSpace(words.get(i).getWordTarget(), englishSize) + " | ");
+            result.append(words.get(i).getwordMeaning() + "\n");
         }
-        return result;
+        return result.toString();
     }
 
     /**
