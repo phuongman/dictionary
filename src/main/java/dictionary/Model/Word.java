@@ -2,29 +2,29 @@ package dictionary.Model;
 
 public class Word {
     private final String wordTarget;
-    private String wordExplain;
+    private String wordMeaning;
 
     /**
      * Constructor.
      * 
      * @param wordTarget  English word
-     * @param wordExplain meaning of the word in Vietnamese
+     * @param wordMeaning meaning of the word in Vietnamese
      */
-    public Word(String wordTarget, String wordExplain) {
+    public Word(String wordTarget, String wordMeaning) {
         this.wordTarget = wordTarget;
-        this.wordExplain = wordExplain;
+        this.wordMeaning = wordMeaning;
     }
 
     public String getWordTarget() {
         return this.wordTarget;
     }
 
-    public String getWordExplain() {
-        return this.wordExplain;
+    public String getwordMeaning() {
+        return this.wordMeaning;
     }
 
-    public void setWordExplain(String wordExplain) {
-        this.wordExplain = wordExplain;
+    public void setwordMeaning(String wordMeaning) {
+        this.wordMeaning = wordMeaning;
         return;
     }
 }
