@@ -1,10 +1,6 @@
 package model;
 
 public class Word {
-    /**
-     * @param word_target: từ mới
-     * @param word_explain: nghĩa của từ mới
-     */
     private String word_target;
     private String word_explain;
 
@@ -22,7 +18,7 @@ public class Word {
      * return từ mới.
      * @param word_target: từ mới
      */
-    public String getWordTarget() {
+    public String getWordTarget(String word_target) {
         return word_target;
     }
 
@@ -30,7 +26,7 @@ public class Word {
      * return nghĩa của từ mới.
      * @param word_explain: nghĩa của từ mới
      */
-    public String getWordExplain() {
+    public String getWordExplain(String word_explain) {
         return word_explain;
     }
 
