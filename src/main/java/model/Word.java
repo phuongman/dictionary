@@ -1,86 +1,56 @@
 package model;
 
 public class Word {
-    private int id;
     private String word_target;
     private String word_type;
     private String word_explain;
     private String word_pronounce;
-    private String word_example;
     private String word_antonym;
     private String word_synonym;
 
 
     /**
-     * return id của từ mới.
-     * @param id: id của từ mới
-     */
-    public int getId(int id) {
-        return id;
-    }
-    /**
      * return từ mới.
-     * @param word_target: từ mới
      */
-    public String getWordTarget(String word_target) {
+    public String getWordTarget() {
         return word_target;
     }
 
     /**
      * return loại từ của từ mới.
-     * @param word_type: loại từ của từ mới
      */
-    public String getWordType(String word_type) {
+    public String getWordType() {
         return word_type;
     }
 
     /**
      * return nghĩa của từ mới.
-     * @param word_explain: nghĩa của từ mới
      */
-    public String getWordExplain(String word_explain) {
+    public String getWordExplain() {
         return word_explain;
     }
 
     /**
      * return phát âm của từ mới.
-     * @param word_pronounce: phát âm của từ mới
      */
-    public String getWordPronounce(String word_pronounce) {
+    public String getWordPronounce() {
         return word_pronounce;
     }
 
     /**
-     * return ví dụ của từ mới.
-     * @param word_example: ví dụ của từ mới
-     */
-    public String getWordExample(String word_example) {
-        return word_example;
-    }
-
-    /**
      * return từ đồng nghĩa của từ mới.
-     * @param word_synonym: từ đồng nghĩa của từ mới
      */
-    public String getWordSynonym(String word_synonym) {
+    public String getWordSynonym() {
         return word_synonym;
     }
 
     /**
      * return từ trái nghĩa của từ mới.
-     * @param word_antonym: từ trái nghĩa của từ mới
      */
-    public String getWordAntonym(String word_antonym) {
+    public String getWordAntonym() {
         return word_antonym;
     }
 
-    /**
-     * set id của từ mới.
-     * @param id: id của từ mới
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
     /**
      * set từ mới.
      * @param word_target: từ mới
@@ -114,14 +84,6 @@ public class Word {
     }
 
     /**
-     * set ví dụ của từ mới.
-     * @param word_example: ví dụ của từ mới
-     */
-    public void setWordExample(String word_example) {
-        this.word_example = word_example;
-    }
-
-    /**
      * set từ trái nghĩa của từ mới.
      * @param word_antonym: từ trái nghĩa của từ mới
      */
@@ -136,6 +98,8 @@ public class Word {
     public void setWordSynonym(String word_synonym) {
         this.word_synonym = word_synonym;
     }
+
+
 
 
 }
