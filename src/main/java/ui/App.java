@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import static model.DatabaseQuery.*;
+import model.Word;
 
 public class App extends Application {
     @Override
