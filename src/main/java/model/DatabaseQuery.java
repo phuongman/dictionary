@@ -6,7 +6,7 @@ public class DatabaseQuery {
     /**
      * Đường dẫn đến cơ sở dữ liệu.
      */
-    private static final String URL = "jdbc:sqlite:D:/Phuong/DaiHoc/NamHai/OOP/TH/dictionary/src/main/java/model/engData.db";
+    private static final String URL = "jdbc:sqlite:engData.db";
     /**
      * Câu lệnh truy vấn.
      */
