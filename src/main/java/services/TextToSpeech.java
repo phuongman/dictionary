@@ -3,21 +3,21 @@ package services;
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 
-public class VoiceEnglish {
+public class TextToSpeech {
     /**
      * @param VOICENAME kevin16
      * @param text text to speak
      */
-   private final String VOICENAME = "kevin16";
-   /**
-    * @param text text to speak
-    */
-   private String text;
+    private final String VOICENAME = "kevin16";
+    /**
+     * @param text text to speak
+     */
+    private String text;
 
     /**
-    * Constructor.
-    */
-    public VoiceEnglish(String text) {
+     * Constructor.
+     */
+    public TextToSpeech(String text) {
         this.text = text;
     }
 
