@@ -8,27 +8,11 @@ public class QuizManager {
     private Quiz quiz;
     private final int numQuiz = 10;
     private int numCorrect = 0;
-    private Random rand = new Random();
-    private int typeQuiz;
+    private ChooseQuestion chooseQuestion;
     private String answer;
 
-    enum QuizType {
-        FillTheBlank,
-        WordMeaning,
-        MeaningWord,
-        WordPronunciation,
-        PronunciationWord,
-    }
-
     public QuizManager() {
-
-    }
-    public void setTypeQuiz(int typeQuiz) {
-        this.typeQuiz = typeQuiz;
-    }
-
-    public int getTypeQuiz() {
-        return this.typeQuiz;
+        chooseQuestion = new ChooseQuestion();
     }
 
     public void setQuiz(Quiz quiz) {
@@ -60,37 +44,17 @@ public class QuizManager {
     }
 
     public void initQuiz() {
-        int typeQuiz = rand.nextInt(6);
-        setTypeQuiz(this.typeQuiz);
-        switch (QuizType.values()[typeQuiz]) {
-            case FillTheBlank:
-                FillTheBlank newQuiz = new FillTheBlank();
-                newQuiz.initFillTheBlank();
-                setQuiz(newQuiz);
-                break;
-            case WordMeaning:
-                WordMeaning newQuiz1 = new WordMeaning();
-                newQuiz1.initWordMeaning();
-                setQuiz(newQuiz1);
-                break;
-            case MeaningWord:
-                MeaningWord newQuiz2 = new MeaningWord();
-                newQuiz2.initMeaningWord();
-                setQuiz(newQuiz2);
-                break;
-            case WordPronunciation:
-                WordPronunciation newQuiz3 = new WordPronunciation();
-                newQuiz3.initWordPronunciation();
-                setQuiz(newQuiz3);
-                break;
-            case PronunciationWord:
-                PronunciationWord newQuiz4 = new PronunciationWord();
-                newQuiz4.initPronunciationWord();
-                setQuiz(newQuiz4);
-                break;
-            default:
-                break;
+        Random rand = new Random();
+        int typeQuiz = rand.nextInt(5);
+        Quiz newQuiz;
+        System.out.println(typeQuiz);
+        if(typeQuiz == 0) {
+            newQuiz = chooseQuestion.initFillTheBlank();
         }
+        else {
+            newQuiz = chooseQuestion.initQuiz(typeQuiz);
+        }
+        setQuiz(newQuiz);
     }
 
     public boolean checkAnswer(String answer) {
@@ -101,6 +65,15 @@ public class QuizManager {
         return false;
     }
 
-
+    public static void main(String[] args) {
+        QuizManager quizManager = new QuizManager();
+        quizManager.initQuiz();
+        System.out.println(quizManager.getQuiz().getQuestion());
+        System.out.println(quizManager.getQuiz().getAnswer_correct());
+        System.out.println(quizManager.getQuiz().getChoices()[0]);
+        System.out.println(quizManager.getQuiz().getChoices()[1]);
+        System.out.println(quizManager.getQuiz().getChoices()[2]);
+        System.out.println(quizManager.getQuiz().getChoices()[3]);
+    }
 
 }

@@ -1,6 +1,6 @@
 package services.Quiz;
 
-public abstract class Quiz {
+public  class Quiz {
     protected String question;
     protected String[] choices = new String[4];
     protected String answer_correct;
@@ -17,7 +17,9 @@ public abstract class Quiz {
         return this.answer_correct;
     }
 
-    public abstract void setQuestion(String question);
+    public void setQuestion(String question, String questionTitle) {
+        this.question = questionTitle + question;
+    }
 
     public void setChoices(String[] choices) {
         this.choices = choices;
