@@ -4,6 +4,9 @@ import java.sql.*;
 import java.util.Random;
 
 public class ChooseQuestion {
+    /**
+     * Tạo một số ngẫu nhiên để tránh việc lặp lại các câu hỏi.
+     */
     private long seed = System.currentTimeMillis() + new Random().nextInt(1000); // Thêm một số ngẫu nhiên
     private Random random = new Random(seed);
     private final String URL = "jdbc:sqlite:src/main/resources/questions.db";

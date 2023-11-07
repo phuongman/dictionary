@@ -7,8 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import static model.DatabaseQuery.*;
-import model.Word;
 
 public class App extends Application {
     @Override
@@ -21,14 +19,6 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        Connect();
-        Word res = lookUpWord("hello");
-        System.out.println(res.getWordTarget());
-        System.out.println(res.getWordType());
-        System.out.println(res.getWordPronounce());
-        System.out.println(res.getWordExplain());
-        System.out.println(res.getWordSynonym());
-        System.out.println(res.getWordAntonym());
         launch();
     }
 }

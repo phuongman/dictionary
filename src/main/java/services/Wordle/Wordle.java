@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Random;
 
 public class Wordle {
+    /**
+     * Khai báo các từ winning.
+     */
     private List<String> winWords = new ArrayList<>();
     private List<String> listWords = new ArrayList<>();
     private String winningWord;

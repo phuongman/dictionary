@@ -5,8 +5,8 @@ import com.sun.speech.freetts.VoiceManager;
 
 public class TextToSpeech {
     /**
-     * @param VOICENAME kevin16
-     * @param text text to speak
+     * @param VOICENAME kevin16.
+     * @param text text to speak.
      */
     private final String VOICENAME = "kevin16";
     /**

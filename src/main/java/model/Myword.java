@@ -1,16 +1,29 @@
 package model;
 
 public class Myword {
+    /**
+     * Khai báo các thuộc tính của Myword
+     */
     private String word;
     private String meaning;
 
+    /**
+     * Khai báo constructor.
+     */
     public Myword() {
     }
 
+    /**
+     * Khai báo constructor.
+     */
     public Myword(String word, String meaning) {
         this.word = word;
         this.meaning = meaning;
     }
+
+    /**
+     * Khai báo getter và setter.
+     */
     public String getWord() {
         return word;
     }

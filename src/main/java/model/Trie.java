@@ -6,17 +6,30 @@ import java.util.List;
 
 
 class TrieNode {
-
+    /**
+     * TrieNode is a node in Trie.
+     */
     private HashMap<Character, TrieNode> children;
+    /**
+     * isWord is a boolean value to check if the node is the end of a word.
+     */
     private boolean isWord;
+    /**
+     * word is the word that the node represents.
+     */
     private Word word;
 
+    /**
+     * Constructor.
+     */
     public TrieNode() {
         children = new HashMap<>();
         isWord = false;
         word = null;
     }
-
+    /**
+     * Getter and setter.
+     */
     public HashMap<Character, TrieNode> getChildren() {
         return children;
     }
@@ -42,11 +55,19 @@ class TrieNode {
     }
 }
 public class Trie {
-
+    /**
+     * Trie is a data structure that stores words.
+     */
     private TrieNode root;
+    /**
+     * Constructor.
+     */
     public Trie() {
         root = new TrieNode();
     }
+    /**
+     * add a word to Trie.
+     */
     public void add(Word word) {
         TrieNode node = root;
         for (char c : word.getWordTarget().toCharArray()) {
@@ -62,6 +83,9 @@ public class Trie {
         node.setWord(word);
     }
 
+    /**
+     * lookup a word from Trie.
+     */
     public Word lookup(String word) {
         TrieNode node = root;
         for (char c : word.toCharArray()) {
@@ -78,6 +102,9 @@ public class Trie {
         }
     }
 
+    /**
+     * find all words that have the same prefix.
+     */
     private void collectWordsFromNode(TrieNode node, String currentWord, List<String> result) {
         if (node.isWord()) {
             result.add(currentWord);
@@ -99,6 +126,10 @@ public class Trie {
             }
         }
     }
+
+    /**
+     * search for words that have the same prefix.
+     */
     public List<String> search(String preWord) {
         List<String> result = new ArrayList<>();
         TrieNode node = root;
@@ -115,6 +146,9 @@ public class Trie {
         return result;
     }
 
+    /**
+     * find all words in Trie.
+     */
     private void collectWords(TrieNode node, List<Word> result) {
         if (node.isWord()) {
             result.add(node.getWord());

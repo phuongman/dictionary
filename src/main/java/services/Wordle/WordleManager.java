@@ -3,6 +3,9 @@ package services.Wordle;
 import java.util.Scanner;
 
 public class WordleManager {
+    /**
+     * Khai báo wordle.
+     */
     Wordle wordle;
     public WordleManager() {
         wordle = new Wordle();

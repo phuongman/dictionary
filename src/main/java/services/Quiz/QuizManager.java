@@ -4,7 +4,9 @@ import java.util.Random;
 
 
 public class QuizManager {
-
+    /**
+     * Khai báo Quiz.
+     */
     private Quiz quiz;
     private final int numQuiz = 10;
     private int numCorrect = 0;

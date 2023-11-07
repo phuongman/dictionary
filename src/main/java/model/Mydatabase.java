@@ -5,10 +5,16 @@ import java.util.ArrayList;
 
 public class Mydatabase extends Database {
 
+    /**
+     * khởi tạo Mydatabase.
+     */
     public Mydatabase() {
         URL = "jdbc:sqlite:src/main/resources/mydata.db";
     }
 
+    /**
+     * hàm lookup.
+     */
     public Myword lookup(String word) {
         Myword myword = new Myword();
         try {
@@ -27,6 +33,9 @@ public class Mydatabase extends Database {
         return myword;
     }
 
+    /**
+     * hàm search.
+     */
     public ArrayList<String> search(String preMyWord) {
         ArrayList<String> mywords = new ArrayList<>();
         try {
@@ -47,6 +56,9 @@ public class Mydatabase extends Database {
         return mywords;
     }
 
+    /**
+     * hàm isWordExist.
+     */
     public boolean isWordExist(final String word) {
         boolean check = false;
         try {
@@ -64,6 +76,10 @@ public class Mydatabase extends Database {
         }
         return check;
     }
+
+    /**
+     * hàm insert.
+     */
     public void insert(Myword myword) {
         try {
             if(!isWordExist(myword.getWord())) {
@@ -83,6 +99,9 @@ public class Mydatabase extends Database {
         }
     }
 
+    /**
+     * hàm update.
+     */
     public void update(Myword myword, String word) {
         try {
             preparedStatement = connection.prepareStatement("UPDATE mydata SET meaning = ?, word = ? WHERE word = ?");
@@ -99,6 +118,9 @@ public class Mydatabase extends Database {
         }
     }
 
+    /**
+     * hàm delete.
+     */
     public void delete(String word) {
         try {
             if(!isWordExist(word)) {
