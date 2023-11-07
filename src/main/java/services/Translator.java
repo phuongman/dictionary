@@ -10,7 +10,7 @@ import java.net.URLEncoder;
 public class Translator {
 
     /**
-     * This class is used to translate a word from English to Vietnamese
+     * This class is used to translate a word from English to Vietnamese.
      * using Google Translate API
      * @param text the word to be translated
      * @return the translated word

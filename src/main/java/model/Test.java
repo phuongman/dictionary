@@ -3,7 +3,7 @@ package model;
 import java.util.List;
 
 public class Test {
-    //public static Dictionary dictionary = new Dictionary();
+    public static Dictionary dictionary = new Dictionary();
     public static Mydictionary mydictionary = new Mydictionary();
 
     public static void main(String[] args) {

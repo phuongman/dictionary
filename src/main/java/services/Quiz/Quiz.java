@@ -1,6 +1,9 @@
 package services.Quiz;
 
 public  class Quiz {
+    /**
+     * Quiz.
+     */
     protected String question;
     protected String[] choices = new String[4];
     protected String answer_correct;
