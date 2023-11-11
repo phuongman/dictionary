@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Timer;
 
 public class Wordle {
     /**
@@ -15,6 +16,7 @@ public class Wordle {
     private String winningWord;
     private int[] stateLetter  = new int[26];
     int cnt = 0;
+
     public Wordle() {
         initWinWords();
         initListWords();
@@ -105,6 +107,8 @@ public class Wordle {
         for(int i = 0; i < 26; i++) {
             stateLetter[i] = -1;
         }
+        setWinningWord();
+
 
     }
 
