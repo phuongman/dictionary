@@ -9,6 +9,7 @@ public class Dictionary {
      * khai báo cây Trie.
      */
     protected static Trie Trie;
+    private static List<String> listWords = new ArrayList<>();
     /**
      * khai báo database.
      */
@@ -22,6 +23,7 @@ public class Dictionary {
         List<Word> words = database.getAllWords();
         for(Word word : words) {
             Trie.add(word);
+            listWords.add(word.getWordTarget());
         }
     }
 
@@ -35,21 +37,18 @@ public class Dictionary {
     /**
      * Thêm từ vào trie.
      */
-    public final Word lookup(String word) {
+    public Word lookup(String word) {
         return Trie.lookup(word);
     }
 
     /**
      * hàm search.
      */
-    public final List<String> search(String preWord) {
+    public  List<String> search(String preWord) {
         return Trie.search(preWord);
     }
 
-
-
-
-
-
-
+    public List<String> getListWords() {
+        return listWords;
+    }
 }

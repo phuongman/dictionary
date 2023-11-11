@@ -7,7 +7,7 @@ public class Mydictionary {
     /**
      * The database of this dictionary.
      */
-    private static Mydatabase mydatabase = new Mydatabase();
+    private Mydatabase mydatabase = new Mydatabase();
 
     /**
      * Constructor.
