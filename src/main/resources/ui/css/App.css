@@ -1,0 +1,20 @@
+.root {
+
+}
+
+/*.button {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}*/
+
+#menuPane {
+    /*-fx-background-color: #87CEFA;*/
+    /*-fx-background-color: #4682b4;*/
+    /*-fx-background-color: #6581BD;*/
+    -fx-background-color: #6284BD;
+}
+
+.white-background {
+    -fx-background-color: "white";
+    -fx-background: "white";
+}

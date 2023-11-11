@@ -36,3 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Loi's Note ###
+dictionary.pdn
+note.txt
