@@ -3,10 +3,21 @@ package services;
 import model.Word;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
+
 import static model.Test.*;
 public class LearnWord {
     private int cntLearnerWords;
+    // Lấy ngày hiện tại
+    Date currentDate = new Date();
+
+    // Sử dụng ngày để tạo một số ngẫu nhiên
+    long randomSeed = currentDate.getTime();
+
+    // Sử dụng số ngẫu nhiên để chọn từ
+    Random random = new Random(randomSeed);
     private List<Word> wordsToLearn = new ArrayList<>();
 
     public LearnWord() {
@@ -23,7 +34,7 @@ public class LearnWord {
 
     public void initWords() {
         for(int i = 0; i < cntLearnerWords; i++) {
-            int index = (int) (Math.random() * dictionary.getListWords().size());
+            int index =random.nextInt(dictionary.getListWords().size());
             wordsToLearn.add(dictionary.lookup(dictionary.getListWords().get(index)));
         }
     }

@@ -39,6 +39,11 @@ public class QuizController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        informationQuiz.setVisible(false);
+        preQuiz.setVisible(true);
+        answerTable.setVisible(false);
+        Timer.setVisible(false);
+
 
 
     }
