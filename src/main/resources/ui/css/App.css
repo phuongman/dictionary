@@ -8,13 +8,31 @@
 }*/
 
 #menuPane {
-    /*-fx-background-color: #87CEFA;*/
+    -fx-background-color: #87CEFA;
     /*-fx-background-color: #4682b4;*/
     /*-fx-background-color: #6581BD;*/
-    -fx-background-color: #6284BD;
+    /*-fx-background-color: #6284BD;*/
+    /*-fx-background-color: "skyblue";*/
+}
+
+#pronounceButton {
+    -fx-background-image: url(../icon/volume24.png);
+    -fx-background-size: 24;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: white;
+    -fx-background-position: left;
+}
+
+.scroll-view-background {
+    -fx-background-radius: 14 14 0 0;
+}
+
+.transparent-background {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
 }
 
 .white-background {
-    -fx-background-color: "white";
-    -fx-background: "white";
+    -fx-background-color: white;
+    -fx-background: white;
 }
