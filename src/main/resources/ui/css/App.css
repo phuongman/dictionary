@@ -23,6 +23,26 @@
     -fx-background-position: left;
 }
 
+#findingButton {
+    -fx-background-image: url(../icon/search24.png);
+    -fx-background-size: 24;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-radius: 50%;
+    -fx-background-color: #BED9FF;
+    /*-fx-background-color: #039ED3;*/
+    /*-fx-background-color: white;*/
+    -fx-border-style: solid;
+    -fx-border-width: 2;
+    -fx-border-color: #039ED3;
+    -fx-border-radius: 50%;
+}
+
+#textField {
+    -fx-background-radius: 30 30 30 30;
+    /*-fx-border-radius: 14 14 14 14;*/
+}
+
 .scroll-view-background {
     -fx-background-radius: 14 14 0 0;
 }

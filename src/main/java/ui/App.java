@@ -14,13 +14,13 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/App.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
+            rootApp = loaderApp.load();
+            Scene scene = new Scene(rootApp);
             String css = this.getClass().getResource("css/App.css").toExternalForm();
             scene.getStylesheets().add(css);
 
             stage.setTitle("Dictionary");
+            stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
         }
@@ -35,6 +35,8 @@ public class App extends Application {
     }
     public static Mydictionary mydictionary = new Mydictionary();
 
+    public static FXMLLoader loaderApp = new FXMLLoader(App.class.getResource("fxml/App.fxml"));
+    public static Parent rootApp;
     public static void main(String[] args) {
         launch();
     }

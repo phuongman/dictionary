@@ -1,64 +1,109 @@
 package ui;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 
-import java.util.List;
+import java.io.IOException;
+import java.util.Objects;
 
-import model.Word;
-import services.TextToSpeech;
+import javafx.scene.layout.BorderPane;
 
 public class AppController {
-    public static String curWord = "";
-    @FXML private ListView<String> listView;
-    @FXML private TextField textField;
-    @FXML private Label labelView;
-    @FXML private ScrollPane scrollView;
-    @FXML private Label currentWordView;
-    @FXML private Button pronounceButton;
+    public DictionaryController dictionaryController;
+    public String curWord = "";
+    private int state;
+    @FXML private BorderPane borderPane;
+    @FXML public TextField textField;
+    @FXML private Button findButton;
+    @FXML private Button dictionaryButton;
+    @FXML private Button googleTranslateButton;
+    @FXML private Button gameButton;
+    @FXML private Button myNoteButton;
 
     /**
      * khởi tạo.
      */
     @FXML
-    private void initialize() {
-        pronounceButton.setVisible(false);
-        loadListView();
+    public void initialize() {
+        try {
+            state = 1;
+            loadTab("fxml/Dictionary.fxml");
+        } catch (Exception e) {
+            System.out.println("AppController error");
+        }
     }
 
     /**
-     * load list từ đang tra.
+     * load tab từ điển.
      */
-    public void loadListView() {
-        listView.getItems().clear();
-        List<String> loadWords = App.getDictionary().search(textField.getText());
-        listView.getItems().addAll(loadWords);
+    public void loadDictionary() {
+        if (state != 1) {
+            state = 1;
+            loadTab("fxml/Dictionary.fxml");
+        }
+    }
+
+    /**
+     * load tab google translate.
+     */
+    public void loadGoogleTranslate() {
+        if (state != 2) {
+            state = 2;
+            loadTab("fxml/Translate.fxml");
+        }
+    }
+
+    /**
+     * load tab game.
+     */
+    public void loadGame() {
+        if (state != 3) {
+            state = 3;
+            loadTab("fxml/Quiz.fxml");
+        }
+    }
+
+    /**
+     * load tab my note.
+     */
+    public void loadMyNote() {
+        if (state != 4) {
+            state = 4;
+            loadTab("fxml/MyNote.fxml");
+        }
+    }
+
+    public void loadTab(String path) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+            Parent root = loader.load();
+            if (state == 1) dictionaryController = loader.getController();
+            borderPane.setCenter(root);
+        } catch (IOException e) {
+            if (borderPane.getCenter() == null) System.out.println("borderPane is null");
+        }
     }
 
     /**
      * load nghĩa của từ được chọn.
      */
     public void lookupWord() {
-        curWord = textField.getText();
-        Word word = App.getDictionary().lookup(curWord);
+        if (state == 1) {
+            dictionaryController.lookupWordDictionary();
+        }
+    }
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(curWord);
-        // if (word.getWordPronounce() != null) stringBuilder.append(" [").append(word.getWordPronounce()).append("]");
-        if (word.getWordPronounce() != null) stringBuilder.append(" ").append(word.getWordPronounce());
-        currentWordView.setText(stringBuilder.toString());
-        pronounceButton.setVisible(true);
-
-        stringBuilder = new StringBuilder();
-        if (word.getWordExplain() != null) stringBuilder.append("Nghĩa: ").append(word.getWordExplain()).append("\n");
-        if (word.getWordSynonym() != null) stringBuilder.append("Từ đồng nghĩa: ").append(word.getWordSynonym()).append("\n");
-        if (word.getWordAntonym() != null) stringBuilder.append("Từ trái nghĩa: ").append(word.getWordAntonym()).append("\n");
-        labelView.setText(stringBuilder.toString());
-//        System.out.println(stringBuilder.toString());
+    /**
+     * load list từ đang tra.
+     */
+    public void loadListView() {
+        if (state == 1) {
+            dictionaryController.loadListViewDictionary();
+        }
     }
 
     /**
@@ -66,45 +111,10 @@ public class AppController {
      */
     public void keyPressTextField(KeyEvent e) {
         if (e.getCode() == KeyCode.ENTER) {
-            lookupWord();
+            dictionaryController.lookupWordDictionary();
         } else if (e.getCode() == KeyCode.DOWN) {
-            listView.requestFocus();
-            listView.getSelectionModel().select(0);
+            dictionaryController.listView.requestFocus();
+            dictionaryController.listView.getSelectionModel().select(0);
         }
-    }
-
-    /**
-     * tương tác với listView bằng bàn phím (Enter để chọn từ).
-     */
-    public void keyPressWord(KeyEvent e) {
-        if (listView.getSelectionModel().getSelectedIndices().isEmpty()) return;
-        if (e.getCode() == KeyCode.ENTER) {
-            String word = listView.getSelectionModel().getSelectedItem();
-            textField.setText(word);
-            lookupWord();
-        } else if (e.getCode() == KeyCode.UP) {
-            if (listView.getSelectionModel().getSelectedIndex() == 0) {
-                textField.requestFocus();
-            }
-        }
-    }
-
-    /**
-     * double click để chọn từ.
-     */
-    public void doubleClickWord(MouseEvent e) {
-        if (e.getButton().equals(MouseButton.PRIMARY) && e.getClickCount() == 2) {
-            String word = listView.getSelectionModel().getSelectedItem();
-            textField.setText(word);
-            lookupWord();
-        }
-    }
-
-    /**
-     * phát âm từ.
-     */
-    public void pronounceWord() {
-        TextToSpeech textToSpeech = new TextToSpeech(curWord);
-        textToSpeech.speak();
     }
 }
