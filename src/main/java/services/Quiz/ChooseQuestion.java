@@ -1,14 +1,21 @@
 package services.Quiz;
 
 import java.sql.*;
+import java.util.Date;
 import java.util.Random;
 
 public class ChooseQuestion {
     /**
      * Tạo một số ngẫu nhiên để tránh việc lặp lại các câu hỏi.
      */
-    private long seed = System.currentTimeMillis() + new Random().nextInt(1000); // Thêm một số ngẫu nhiên
-    private Random random = new Random(seed);
+    // Lấy ngày hiện tại
+    Date currentDate = new Date();
+
+    // Sử dụng ngày để tạo một số ngẫu nhiên
+    long randomSeed = currentDate.getTime();
+
+    // Sử dụng số ngẫu nhiên để chọn từ
+    Random random = new Random(randomSeed);
     private final String URL = "jdbc:sqlite:src/main/resources/questions.db";
     private Connection connection = null;
     private PreparedStatement preparedStatement = null;
