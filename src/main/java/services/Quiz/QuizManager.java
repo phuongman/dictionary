@@ -12,18 +12,24 @@ public class QuizManager {
      */
     private Quiz quiz;
     private static final int numQuiz = 10;
+    private int currentQuiz = 0;
     private int numCorrect = 0;
     private ChooseQuestion chooseQuestion;
     private String answer;
-    Timer timer;
-    private static final int time = 2;
-    boolean isPlaying = false;
-    private int timeElapsed = 0;
+
+    public int getCurrentQuiz() {
+        return currentQuiz;
+    }
+
+    public void setCurrentQuiz(int currentQuiz) {
+        this.currentQuiz = currentQuiz;
+    }
+    public void increaseCurrentQuiz() {
+        this.currentQuiz++;
+    }
 
     public QuizManager() {
-        timer = new Timer();
         chooseQuestion = new ChooseQuestion();
-        isPlaying = false;
     }
 
     public void setQuiz(Quiz quiz) {
@@ -42,7 +48,7 @@ public class QuizManager {
         return this.answer;
     }
 
-    public void uppdateNumCorrect() {
+    public void updateNumCorrect() {
         this.numCorrect++;
     }
 
@@ -58,7 +64,7 @@ public class QuizManager {
         Random rand = new Random();
         int typeQuiz = rand.nextInt(5);
         Quiz newQuiz;
-        System.out.println(typeQuiz);
+        //System.out.println(typeQuiz);
         if(typeQuiz == 0) {
             newQuiz = chooseQuestion.initFillTheBlank();
         }
@@ -69,43 +75,16 @@ public class QuizManager {
     }
 
     public boolean checkAnswer(String answer) {
-        int timeCur = timeElapsed;
-        if (answer.equals(getQuiz().getAnswer_correct()) && isPlaying) {
-            uppdateNumCorrect();
+        if (answer.equals(getQuiz().getAnswer_correct())) {
+            updateNumCorrect();
             return true;
         }
         return false;
     }
 
-    public void startTimer() {
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                if (isPlaying) {
-                    timeElapsed++; // Tăng thời gian đã trôi qua sau mỗi giây nếu game đang chạy và không bị tạm dừng
-                }
-            }
-        }, 1000, 1000); // Lặp lại mỗi giây (1000 mili giây)
-    }
-
-    public void startGame() {
-        isPlaying = true; // Bắt đầu game
-    }
-
     public void reset() {
-        timeElapsed = 0;
+        currentQuiz = 0;
         numCorrect = 0;
-        isPlaying = false;
-    }
-
-    public void play() {
-        startGame();
-        startTimer();
-    }
-
-    public void rePlay() {
-        reset();
-        play();
     }
 
 
@@ -123,9 +102,7 @@ public class QuizManager {
                 System.out.println("exit game");
                 continue;
             }
-            quizManager.play();
             for(int i = 1; i <= 10; i++) {
-                quizManager.timeElapsed = 0;
                 quizManager.initQuiz();
                 System.out.println(quizManager.getQuiz().getQuestion());
                 System.out.println(quizManager.getQuiz().getAnswer_correct());
@@ -136,13 +113,12 @@ public class QuizManager {
                 System.out.println("nhap dap an:");
                 int x = sc.nextInt();
                 System.out.println(quizManager.checkAnswer(quizManager.getQuiz().getChoices()[x]));
-                if(quizManager.timeElapsed > time) System.out.println("qua time");
             }
             System.out.println(quizManager.numCorrect);
             System.out.println("ban co muon choi lai:");
             ok = sc.nextInt();
             if(ok != 0) {
-                quizManager.rePlay();
+                quizManager.reset();
             }
             else {
                 exit = true;
