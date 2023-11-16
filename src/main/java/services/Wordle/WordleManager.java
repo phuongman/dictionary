@@ -11,15 +11,9 @@ public class WordleManager {
      */
     Wordle wordle;
     String guessWord;
-    Timer timer;
-    int time = 300;
-    private int timeElapsed;
     boolean isPlaying;
-    ArrayList<Integer> timeElapsedList = new ArrayList<>();
     public WordleManager() {
-        timer = new Timer();
         wordle = new Wordle();
-        timeElapsed = 0;
         isPlaying = false;
     }
 
@@ -31,13 +25,6 @@ public class WordleManager {
         return guessWord;
     }
 
-    public int getTimeElapsed() {
-        return timeElapsed;
-    }
-
-    public void setTimeElapsed(int timeElapsed) {
-        this.timeElapsed = timeElapsed;
-    }
     public void setWinningWord() {
         wordle.setWinningWord();
     }
@@ -50,39 +37,24 @@ public class WordleManager {
         return wordle.getWinningWord();
     }
 
-    public void startTimer() {
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                if (isPlaying) {
-                    timeElapsed++; // Tăng thời gian đã trôi qua sau mỗi giây nếu game đang chạy và không bị tạm dừng
-                }
-            }
-        }, 1000, 1000); // Lặp lại mỗi giây (1000 mili giây)
-    }
-
     public void startGame() {
         isPlaying = true; // Bắt đầu game
     }
 
     public void stopGame() {
         isPlaying = false; // Dừng game
-        timeElapsedList.add(timeElapsed); // Lưu thời gian đã trôi qua vào danh sách
-        timeElapsed = 0; // Đặt lại thời gian
     }
 
 
     public boolean checkGameOver() {
-        return wordle.checkGameover() || timeElapsed >= time;
+        return wordle.checkGameover();
     }
 
     public void play() {
         startGame();
-        startTimer();
     }
     public void reset() {
         wordle.reset();
-        timeElapsed = 0;
         isPlaying = false;
     }
 
@@ -119,7 +91,6 @@ public class WordleManager {
                 if(wm.wordle.checkWord(guess)) {
                     wm.wordle.updateState(guess);
                     if(wm.checkWin(guess)) {
-                        System.out.println(wm.timeElapsed);
                         wm.stopGame();
                         System.out.println("You win");
                         break;

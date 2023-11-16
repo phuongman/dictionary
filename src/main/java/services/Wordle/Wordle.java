@@ -2,15 +2,21 @@ package services.Wordle;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Timer;
+import java.util.*;
 
 public class Wordle {
     /**
      * Khai báo các từ winning.
      */
+
+    // Lấy ngày hiện tại
+    Date currentDate = new Date();
+
+    // Sử dụng ngày để tạo một số ngẫu nhiên
+    long randomSeed = currentDate.getTime();
+
+    // Sử dụng số ngẫu nhiên để chọn từ
+    Random random = new Random(randomSeed);
     private List<String> winWords = new ArrayList<>();
     private List<String> listWords = new ArrayList<>();
     private String winningWord;
@@ -58,8 +64,7 @@ public class Wordle {
     }
 
     public void setWinningWord() {
-        Random ran = new Random();
-        int index = ran.nextInt(winWords.size());
+        int index = random.nextInt(winWords.size());
         winningWord = winWords.get(index);
     }
     public boolean checkWin(String word) {

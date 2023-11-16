@@ -101,7 +101,7 @@ public class AppController {
         currentButton.getStyleClass().add("button-clicked");
         if (state != 4) {
             state = 4;
-            loadTab("fxml/Quiz.fxml");
+            loadTab("fxml/Wordle.fxml");
         }
     }
 

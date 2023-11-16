@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="gamePane" prefHeight="620.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.GameController">
+   <children>
+      <ImageView fitHeight="284.0" fitWidth="421.0" layoutX="621.0" layoutY="140.0" pickOnBounds="true">
+         <image>
+            <Image url="@../image/wwordlelogo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="wordlebutton" layoutX="767.0" layoutY="454.0" mnemonicParsing="false" onAction="#onActionwordlebutton" onMouseEntered="#onMouseEnteredwordlebutton" onMouseExited="#onMouseExitwordlebutton" prefHeight="49.0" prefWidth="130.0" style="-fx-background-color: steelblue; -fx-border-radius: 20; -fx-background-radius: 20 20 20 20;" text="Wordle">
+         <font>
+            <Font name="Serif Bold Italic" size="20.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="284.0" fitWidth="421.0" layoutX="130.0" layoutY="140.0" pickOnBounds="true">
+         <image>
+            <Image url="@../image/quizlogo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="quizbutton" layoutX="276.0" layoutY="454.0" mnemonicParsing="false" onAction="#onActionquizbutton" onMouseEntered="#onMouseEnteredquizbutton" onMouseExited="#onMouseExitquizbutton" prefHeight="49.0" prefWidth="130.0" style="-fx-background-color: steelblue; -fx-border-radius: 20; -fx-background-radius: 20 20 20 20;" text="Quiz">
+         <font>
+            <Font name="Serif Bold Italic" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
