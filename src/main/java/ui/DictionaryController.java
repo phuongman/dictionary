@@ -8,7 +8,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Font;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.*;
 import model.Word;
 import services.TextToSpeech;
 
@@ -18,14 +19,12 @@ public class DictionaryController {
     public AppController appController;
 
     @FXML private Label currentWordView;
-
-    @FXML private Label labelView;
-
+    @FXML private Label currentPronounceView;
     @FXML public ListView<String> listView;
-
     @FXML private Button pronounceButton;
-
     @FXML private ScrollPane scrollView;
+    @FXML private TextFlow textFlowView;
+
 
     @FXML
     public void initialize() {
@@ -72,19 +71,47 @@ public class DictionaryController {
         appController.curWord = appController.textField.getText();
         Word word = App.getDictionary().lookup(appController.curWord);
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(appController.curWord);
-        // if (word.getWordPronounce() != null) stringBuilder.append(" [").append(word.getWordPronounce()).append("]");
-        if (word.getWordPronounce() != null) stringBuilder.append(" ").append(word.getWordPronounce());
-        currentWordView.setText(stringBuilder.toString());
+        currentWordView.setText(appController.curWord);
+        if (word.getWordPronounce() != null) currentPronounceView.setText(" " + word.getWordPronounce());
         pronounceButton.setVisible(true);
 
-        stringBuilder = new StringBuilder();
-        if (word.getWordExplain() != null) stringBuilder.append("Nghĩa: ").append(word.getWordExplain()).append("\n");
-        if (word.getWordSynonym() != null) stringBuilder.append("Từ đồng nghĩa: ").append(word.getWordSynonym()).append("\n");
-        if (word.getWordAntonym() != null) stringBuilder.append("Từ trái nghĩa: ").append(word.getWordAntonym()).append("\n");
-        labelView.setText(stringBuilder.toString());
-//        System.out.println(stringBuilder.toString());
+        StringBuilder stringBuilder = new StringBuilder();
+        if (word.getWordExplain() != null) stringBuilder.append(word.getWordExplain()).append("\n");
+        if (word.getWordSynonym() != null) stringBuilder.append("*Từ đồng nghĩa\n").append(word.getWordSynonym()).append("\n");
+        if (word.getWordAntonym() != null) stringBuilder.append("*Từ trái nghĩa\n").append(word.getWordAntonym()).append("\n");
+
+        textFlowView = new TextFlow();
+        String[] lines = stringBuilder.toString().split("\n");
+        for (int i = 0; i < lines.length; i++) {
+            Text tmp = new Text();
+            StringBuilder tmpString = new StringBuilder(lines[i]);
+            if (i < lines.length - 1) tmpString.append("\n");
+            tmp.setFont(Font.font(20));
+
+            // Danh từ, động từ, ..., từ đồng nghĩa, từ trái nghĩa
+            if (!tmpString.isEmpty() && tmpString.charAt(0) == '*') {
+//                tmp.setStyle("-fx-font-weight: bold");
+                tmp.setFont(Font.font(null, FontWeight.BOLD, 20));
+                tmpString.deleteCharAt(0);
+                tmpString.setCharAt(0, Character.toUpperCase(tmpString.charAt(0)));
+            }
+
+            // Ví dụ
+            if (!tmpString.isEmpty() && tmpString.charAt(0) == '=') {
+                tmp.setFont(Font.font(null, FontPosture.ITALIC, 20));
+                //tmp.setFill(Paint.valueOf("#639bff"));
+                tmp.setFill(Paint.valueOf("#455ede"));
+                tmpString.deleteCharAt(0);
+                tmpString.insert(0, "Ex: ");
+                for (int j = 0; j < tmpString.length(); j++) if (tmpString.charAt(j) == '+') tmpString.setCharAt(j, ':');
+            }
+
+            tmp.setText(tmpString.toString());
+            textFlowView.getChildren().add(tmp);
+             System.out.print(tmp.getText());
+        }
+        textFlowView.setPrefWidth(760);
+        scrollView.setContent(textFlowView);
     }
 
     /**
