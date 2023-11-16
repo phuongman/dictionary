@@ -1,47 +1,50 @@
 package services;
 
-import com.sun.speech.freetts.Voice;
-import com.sun.speech.freetts.VoiceManager;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import javazoom.jl.player.Player;
 
 public class TextToSpeech {
     /**
-     * @param VOICENAME kevin16.
-     * @param text text to speak.
+     * Phát âm tiếng anh.
      */
-    private final String VOICENAME = "kevin16";
-    /**
-     * @param text text to speak
-     */
-    private String text;
-
-    /**
-     * Constructor.
-     */
-    public TextToSpeech(String text) {
-        this.text = text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    /**
-     * speak text.
-     */
-    public void speak() {
-        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
-        VoiceManager voiceManager = VoiceManager.getInstance();
-        Voice voice = voiceManager.getVoice(VOICENAME);
-        if (voice == null) {
-            System.err.println("Cannot find voice: kevin16");
-            System.exit(1);
+    public static void speakEnglish(String text) {
+        try {
+            String api =
+                    "https://translate.google.com/translate_tts?ie=UTF-8&tl="
+                            + "en"
+                            + "&client=tw-ob&q="
+                            + URLEncoder.encode(text, StandardCharsets.UTF_8);
+            URL url = new URL(api);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            InputStream audio = con.getInputStream();
+            new Player(audio).play();
+            con.disconnect();
+        } catch (Exception e) {
+            System.err.println("Loi phat am tieng anh");
         }
-        voice.allocate();
-        voice.speak(this.text);
-        voice.deallocate();
+    }
+
+    /**
+     * Phát âm tiếng việt.
+     */
+    public static void speakVietnamese(String text) {
+        try {
+            String api =
+                    "https://translate.google.com/translate_tts?ie=UTF-8&tl="
+                            + "vi"
+                            + "&client=tw-ob&q="
+                            + URLEncoder.encode(text, StandardCharsets.UTF_8);
+            URL url = new URL(api);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            InputStream audio = con.getInputStream();
+            new Player(audio).play();
+            con.disconnect();
+        } catch (Exception e) {
+            System.err.println("Loi phat am tieng viet");
+        }
     }
 }

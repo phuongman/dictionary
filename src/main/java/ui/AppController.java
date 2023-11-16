@@ -23,6 +23,8 @@ public class AppController {
     @FXML private Button googleTranslateButton;
     @FXML private Button gameButton;
     @FXML private Button myNoteButton;
+    @FXML private Button learnButton;
+    @FXML private Button currentButton = null;
 
     /**
      * khởi tạo.
@@ -38,45 +40,8 @@ public class AppController {
     }
 
     /**
-     * load tab từ điển.
+     * load tab.
      */
-    public void loadDictionary() {
-        if (state != 1) {
-            state = 1;
-            loadTab("fxml/Dictionary.fxml");
-        }
-    }
-
-    /**
-     * load tab google translate.
-     */
-    public void loadGoogleTranslate() {
-        if (state != 2) {
-            state = 2;
-            loadTab("fxml/Translate.fxml");
-        }
-    }
-
-    /**
-     * load tab game.
-     */
-    public void loadGame() {
-        if (state != 3) {
-            state = 3;
-            loadTab("fxml/Quiz.fxml");
-        }
-    }
-
-    /**
-     * load tab my note.
-     */
-    public void loadMyNote() {
-        if (state != 4) {
-            state = 4;
-            loadTab("fxml/MyNote.fxml");
-        }
-    }
-
     public void loadTab(String path) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
@@ -89,9 +54,77 @@ public class AppController {
     }
 
     /**
+     * load tab từ điển.
+     */
+    public void loadDictionary() {
+        if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
+        currentButton = dictionaryButton;
+        currentButton.getStyleClass().add("button-clicked");
+        if (state != 1) {
+            state = 1;
+            loadTab("fxml/Dictionary.fxml");
+        }
+    }
+
+    /**
+     * load tab google translate.
+     */
+    public void loadGoogleTranslate() {
+        if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
+        currentButton = googleTranslateButton;
+        currentButton.getStyleClass().add("button-clicked");
+        if (state != 2) {
+            state = 2;
+            loadTab("fxml/Translate.fxml");
+        }
+    }
+
+    /**
+     * load tab learn.
+     */
+    public void loadLearn() {
+        if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
+        currentButton = learnButton;
+        currentButton.getStyleClass().add("button-clicked");
+        if (state != 3) {
+            state = 3;
+            loadTab("fxml/Learn.fxml");
+        }
+    }
+
+    /**
+     * load tab game.
+     */
+    public void loadGame() {
+        if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
+        currentButton = gameButton;
+        currentButton.getStyleClass().add("button-clicked");
+        if (state != 4) {
+            state = 4;
+            loadTab("fxml/Quiz.fxml");
+        }
+    }
+
+    /**
+     * load tab my note.
+     */
+    public void loadMyNote() {
+        if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
+        currentButton = myNoteButton;
+        currentButton.getStyleClass().add("button-clicked");
+        if (state != 5) {
+            state = 5;
+            loadTab("fxml/MyNote.fxml");
+        }
+    }
+
+    /**
      * load nghĩa của từ được chọn.
      */
     public void lookupWord() {
+        if (state == 2 || state == 3 || state == 4) {
+            loadDictionary();
+        }
         if (state == 1) {
             dictionaryController.lookupWordDictionary();
         }
@@ -111,8 +144,9 @@ public class AppController {
      */
     public void keyPressTextField(KeyEvent e) {
         if (e.getCode() == KeyCode.ENTER) {
-            dictionaryController.lookupWordDictionary();
+            lookupWord();
         } else if (e.getCode() == KeyCode.DOWN) {
+            loadDictionary();
             dictionaryController.listView.requestFocus();
             dictionaryController.listView.getSelectionModel().select(0);
         }

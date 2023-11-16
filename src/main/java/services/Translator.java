@@ -8,23 +8,34 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class Translator {
+    private static final String myUrl = "https://script.google.com/macros/s/AKfycbz0u_LKYSLRwuK3MqJfORN7OkQH2EqzGxKuvQ7bLTmNXM39V55d2AD5uFzFv1z1IourYw/exec";
+
 
     /**
-     * This class is used to translate a word from English to Vietnamese.
-     * using Google Translate API
-     * @param text the word to be translated
-     * @return the translated word
-     * @throws IOException
+     * Dịch Tiếng Anh ra Tiếng Việt.
      */
-    private final String langFrom = "en";
-    private final String langTo = "vi";
-    private final String myUrl = "https://script.google.com/macros/s/AKfycbz0u_LKYSLRwuK3MqJfORN7OkQH2EqzGxKuvQ7bLTmNXM39V55d2AD5uFzFv1z1IourYw/exec";
-    private String text;
-
-    public Translator(String text) {
-        this.text = text;
+    public static String translateEnglishToVietnamese(String text) {
+        try {
+            return translate("en", "vi", text);
+        } catch (IOException e) {
+            System.out.println("chuyển anh sang việt sai");
+        }
+        return "Error";
     }
-    public String translate() throws IOException {
+
+    /**
+     * Dịch Tiếng Việt ra Tiếng Anh.
+     */
+    public static String translateVietnameseToEnglish(String text) {
+        try {
+            return translate("vi", "en", text);
+        } catch (IOException e) {
+            System.out.println("chuyển việt sang anh sai");
+        }
+        return "Error";
+    }
+
+    public static String translate(String langFrom, String langTo, String text) throws IOException {
         // INSERT YOU URL HERE
         String urlStr =  myUrl +
                 "?q=" + URLEncoder.encode(text, "UTF-8") +

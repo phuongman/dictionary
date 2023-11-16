@@ -118,7 +118,6 @@ public class DictionaryController {
      * phát âm từ.
      */
     public void pronounceWord() {
-        TextToSpeech textToSpeech = new TextToSpeech(appController.curWord);
-        textToSpeech.speak();
+        TextToSpeech.speakEnglish(appController.curWord);
     }
 }

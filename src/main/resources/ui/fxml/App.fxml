@@ -3,41 +3,94 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="742.0" prefWidth="1200.0" stylesheets="@../css/App.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AppController">
-    <top>
-        <AnchorPane fx:id="menuPane" prefHeight="110.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+   <top>
+      <HBox prefHeight="110.0" prefWidth="960.0" styleClass="blue-background" stylesheets="@../css/App.css" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="textField" layoutX="28.0" layoutY="28.0" onAction="#lookupWord" onKeyPressed="#keyPressTextField" onKeyTyped="#loadListView" prefHeight="55.0" prefWidth="259.0" stylesheets="@../css/App.css">
+            <AnchorPane prefHeight="110.0" prefWidth="332.0">
+               <children>
+                  <TextField fx:id="textField" layoutX="28.0" layoutY="28.0" onAction="#lookupWord" onKeyPressed="#keyPressTextField" onKeyTyped="#loadListView" prefHeight="55.0" prefWidth="259.0" stylesheets="@../css/App.css">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="15.0" right="45.0" />
+                     </padding>
+                  </TextField>
+                  <Button fx:id="findingButton" layoutX="232.0" layoutY="28.0" mnemonicParsing="false" onAction="#lookupWord" prefHeight="55.0" prefWidth="55.0" stylesheets="@../css/App.css" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="dictionaryButton" mnemonicParsing="false" onAction="#loadDictionary" prefHeight="110.0" prefWidth="187.0" text="Dictionary" wrapText="true">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
-               <padding>
-                  <Insets left="15.0" right="45.0" />
-               </padding></TextField>
-            <Button fx:id="dictionaryButton" alignment="CENTER" contentDisplay="CENTER" layoutX="339.0" layoutY="28.0" mnemonicParsing="false" onAction="#loadDictionary" prefHeight="55.0" prefWidth="180.0" text="Dictionary" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@../icon/dictionary32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </Button>
-            <Button fx:id="myNoteButton" alignment="CENTER" contentDisplay="CENTER" layoutX="998.0" layoutY="28.0" mnemonicParsing="false" onAction="#loadMyNote" prefHeight="55.0" prefWidth="150.0" text="My Note" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="googleTranslateButton" mnemonicParsing="false" onAction="#loadGoogleTranslate" prefHeight="110.0" prefWidth="182.0" text="Transalte" wrapText="true">
                <font>
-                  <Font name="System Bold" size="20.0" />
-               </font></Button>
-            <Button fx:id="googleTranslateButton" alignment="CENTER" contentDisplay="CENTER" layoutX="568.0" layoutY="28.0" mnemonicParsing="false" onAction="#loadGoogleTranslate" prefHeight="55.0" prefWidth="190.0" text="Google Translate" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@../icon/google32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="gameButton" alignment="CENTER" contentDisplay="CENTER" layoutX="814.0" layoutY="28.0" mnemonicParsing="false" onAction="#loadGame" prefHeight="55.0" prefWidth="140.0" text="Game" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="learnButton" mnemonicParsing="false" onAction="#loadLearn" prefHeight="110.0" prefWidth="152.0" text="Learn" wrapText="true">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@../icon/learn32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="findingButton" layoutX="232.0" layoutY="28.0" mnemonicParsing="false" onAction="#lookupWord" prefHeight="55.0" prefWidth="55.0" stylesheets="@../css/App.css" />
-         </children></AnchorPane>
-    </top>
+            <Button fx:id="gameButton" mnemonicParsing="false" onAction="#loadGame" prefHeight="110.0" prefWidth="152.0" text="Game" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@../icon/game32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="myNoteButton" mnemonicParsing="false" onAction="#loadMyNote" prefHeight="110.0" prefWidth="167.0" text="My Note" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@../icon/notebook32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

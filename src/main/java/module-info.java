@@ -5,5 +5,6 @@ module ui {
     opens ui to javafx.fxml;
     requires freetts;
     requires org.xerial.sqlitejdbc;
+    requires jlayer;
     exports ui;
 }

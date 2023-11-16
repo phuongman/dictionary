@@ -1,15 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="620.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.GoogleTranslateController">
+<AnchorPane prefHeight="620.0" prefWidth="1200.0" styleClass="app-background" stylesheets="@../css/App.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.GoogleTranslateController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="448.0" layoutY="283.0" text="Đây là Google Dịch">
+      <TextArea fx:id="leftTextArea" layoutX="56.0" layoutY="140.0" onKeyTyped="#autoTranslate" prefHeight="300.0" prefWidth="530.0" wrapText="true">
          <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
+            <Font size="20.0" />
+         </font></TextArea>
+      <TextArea fx:id="rightTextArea" editable="false" layoutX="615.0" layoutY="140.0" prefHeight="300.0" prefWidth="530.0" promptText="Bản dịch" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font></TextArea>
+      <HBox layoutX="56.0" layoutY="40.0" prefHeight="100.0" prefWidth="564.0">
+         <children>
+            <Label fx:id="leftLabel" alignment="BOTTOM_LEFT" prefHeight="47.0" prefWidth="150.0" text="Tiếng Anh">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" top="48.0" />
+               </HBox.margin>
+            </Label>
+            <Button fx:id="leftPronounceButton" mnemonicParsing="false" onAction="#speakLeft" prefHeight="40.0" prefWidth="40.0">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/volume224.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets top="54.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="swapButton" mnemonicParsing="false" onAction="#swapLanguage" prefHeight="40.0" prefWidth="40.0">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/exchange24.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="322.0" top="54.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="615.0" layoutY="40.0" prefHeight="100.0" prefWidth="530.0">
+         <children>
+            <Label fx:id="rightLabel" alignment="BOTTOM_LEFT" prefHeight="47.0" prefWidth="150.0" text="Tiếng Việt">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" top="48.0" />
+               </HBox.margin>
+            </Label>
+            <Button fx:id="rightPronounceButton" mnemonicParsing="false" onAction="#speakRight" prefHeight="40.0" prefWidth="40.0">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/volume224.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets top="54.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
