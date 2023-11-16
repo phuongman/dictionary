@@ -2,12 +2,16 @@
 
 }
 
-.button {
+.appButton {
     -fx-background-color: transparent;
     -fx-background-radius: 30 30 0 0;
 }
 
-.button.button-clicked {
+.appButton:hover {
+    -fx-background-color: #e8e8e8;
+}
+
+.appButton.button-clicked {
     -fx-background-color: #e8e8e8;
 }
 

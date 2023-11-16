@@ -23,7 +23,7 @@
                <children>
                   <HBox prefHeight="70.0" prefWidth="835.0">
                      <children>
-                        <Label fx:id="currentWordView" prefHeight="53.0" textFill="RED">
+                        <Label fx:id="currentWordView" prefHeight="53.0" textFill="#db2c35">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>

@@ -77,8 +77,8 @@ public class DictionaryController {
 
         StringBuilder stringBuilder = new StringBuilder();
         if (word.getWordExplain() != null) stringBuilder.append(word.getWordExplain()).append("\n");
-        if (word.getWordSynonym() != null) stringBuilder.append("*Từ đồng nghĩa\n").append(word.getWordSynonym()).append("\n");
-        if (word.getWordAntonym() != null) stringBuilder.append("*Từ trái nghĩa\n").append(word.getWordAntonym()).append("\n");
+        if (word.getWordSynonym() != null) stringBuilder.append("*Từ đồng nghĩa\n").append("- " + word.getWordSynonym()).append("\n");
+        if (word.getWordAntonym() != null) stringBuilder.append("*Từ trái nghĩa\n").append("- " + word.getWordAntonym()).append("\n");
 
         textFlowView = new TextFlow();
         String[] lines = stringBuilder.toString().split("\n");
@@ -108,9 +108,10 @@ public class DictionaryController {
 
             tmp.setText(tmpString.toString());
             textFlowView.getChildren().add(tmp);
-             System.out.print(tmp.getText());
+            // System.out.print(tmp.getText());
         }
         textFlowView.setPrefWidth(760);
+        textFlowView.setLineSpacing(10);
         scrollView.setContent(textFlowView);
     }
 
@@ -118,7 +119,7 @@ public class DictionaryController {
      * double click để chọn từ.
      */
     public void doubleClickWord(MouseEvent e) {
-        if (e.getButton().equals(MouseButton.PRIMARY) && e.getClickCount() == 2) {
+        if (e.getButton().equals(MouseButton.PRIMARY) && e.getClickCount() >= 1) {
             String word = listView.getSelectionModel().getSelectedItem();
             appController.textField.setText(word);
             lookupWordDictionary();

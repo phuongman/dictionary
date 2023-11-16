@@ -27,14 +27,14 @@
                   <Button fx:id="findingButton" layoutX="232.0" layoutY="28.0" mnemonicParsing="false" onAction="#lookupWord" prefHeight="55.0" prefWidth="55.0" stylesheets="@../css/App.css" />
                </children>
             </AnchorPane>
-            <Button fx:id="dictionaryButton" mnemonicParsing="false" onAction="#loadDictionary" prefHeight="110.0" prefWidth="187.0" text="Dictionary" wrapText="true">
+            <Button fx:id="dictionaryButton" mnemonicParsing="false" onAction="#loadDictionary" prefHeight="110.0" prefWidth="187.0" styleClass="appButton" stylesheets="@../css/App.css" text="Dictionary" wrapText="true">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                      <image>
-                        <Image url="@../icon/dictionary32.png" />
+                        <Image url="@../icon/dictionaryImage.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -42,50 +42,50 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button fx:id="googleTranslateButton" mnemonicParsing="false" onAction="#loadGoogleTranslate" prefHeight="110.0" prefWidth="182.0" text="Transalte" wrapText="true">
+            <Button fx:id="googleTranslateButton" mnemonicParsing="false" onAction="#loadGoogleTranslate" prefHeight="110.0" prefWidth="182.0" styleClass="appButton" stylesheets="@../css/App.css" text="Transalte" wrapText="true">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                      <image>
-                        <Image url="@../icon/google32.png" />
+                        <Image url="@../icon/googleTranslate.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="learnButton" mnemonicParsing="false" onAction="#loadLearn" prefHeight="110.0" prefWidth="152.0" text="Learn" wrapText="true">
+            <Button fx:id="learnButton" mnemonicParsing="false" onAction="#loadLearn" prefHeight="110.0" prefWidth="152.0" styleClass="appButton" stylesheets="@../css/App.css" text="Learn" wrapText="true">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                      <image>
-                        <Image url="@../icon/learn32.png" />
+                        <Image url="@../icon/learnImage32.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="gameButton" mnemonicParsing="false" onAction="#loadGame" prefHeight="110.0" prefWidth="152.0" text="Game" wrapText="true">
+            <Button fx:id="gameButton" mnemonicParsing="false" onAction="#loadGame" prefHeight="110.0" prefWidth="152.0" styleClass="appButton" stylesheets="@../css/App.css" text="Game" wrapText="true">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                      <image>
-                        <Image url="@../icon/game32.png" />
+                        <Image url="@../icon/playGame32.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="myNoteButton" mnemonicParsing="false" onAction="#loadMyNote" prefHeight="110.0" prefWidth="167.0" text="My Note" wrapText="true">
+            <Button fx:id="myNoteButton" mnemonicParsing="false" onAction="#loadMyNote" prefHeight="110.0" prefWidth="167.0" styleClass="appButton" stylesheets="@../css/App.css" text="My Note" wrapText="true">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                      <image>
-                        <Image url="@../icon/notebook32.png" />
+                        <Image url="@../icon/myNote32.png" />
                      </image>
                   </ImageView>
                </graphic>
