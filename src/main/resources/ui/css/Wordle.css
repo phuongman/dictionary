@@ -10,10 +10,7 @@
     -correct-color: #6aaa64;
 }
 
-.defaultLabel {
-        -fx-background-color: -background-color;
-        -fx-border-color: -empty-border-color;
-        -fx-text-fill: -text-fill-color;
+.defaultLabel, .correctCharacter, .wrongPositionCharacter, .wrongCharacter, .currentLabel {
         -fx-font-size: 28px;
         -fx-font-weight: bold;
         -fx-border-width: 2px;
@@ -24,9 +21,29 @@
         -fx-text-alignment: center;
         -fx-alignment: center;
 }
+.defaultLabel {
+        -fx-background-color: -background-color;
+        -fx-border-color: -empty-border-color;
+        -fx-text-fill: -text-fill-color;
+}
 
-.defaultKeyboard {
-    -fx-background-color: -key-background-color;
+.correctCharacter {
+        -fx-background-color: -correct-color;
+        -fx-border-color: -correct-color;
+        -fx-text-fill: white;
+}
+.wrongPositionCharacter {
+    -fx-background-color: -present-color;
+    -fx-border-color: -present-color;
+    -fx-text-fill: white;
+}
+.wrongCharacter {
+        -fx-background-color: -wrong-color;
+        -fx-border-color: -wrong-color;
+        -fx-text-fill: white;
+}
+
+.defaultKeyboard, .keyboardCorrectCharacter, .keyboardPresentCharacter, .keyboardWrongCharacter {
     -fx-text-fill: -text-fill-color;
     -fx-font-size: 13px;
     -fx-font-weight: bold;
@@ -35,6 +52,18 @@
     -fx-text-alignment: center;
     -fx-alignment: center;
     -fx-background-radius: 4px;
+}
+.defaultKeyboard {
+    -fx-background-color: -key-background-color;
+}
+.keyboardCorrectCharacter {
+    -fx-background-color: -correct-color;
+}
+.keyboardPresentCharacter {
+    -fx-background-color: -present-color;
+}
+.keyboardWrongCharacter {
+    -fx-background-color: -wrong-color;
 }
 
 .defaultKeyboardSymbol {
@@ -48,171 +77,48 @@
     -fx-background-radius: 4px;
 }
 
-
-/*.tile-with-letter {
+.currentLabel {
     -fx-border-color: -unlocked-border-color;
 }
 
-.present-letter {
-    -fx-background-color: -present-color;
-    -fx-border-color: -present-color;
-    -fx-text-fill: white;
-    -fx-font-size: 30px;
-    -fx-font-weight: bold;
-    -fx-border-width: 2px;
-    -fx-min-width: 62px;
-    -fx-min-height: 62px;
-    -fx-pref-width: 65px;
-    -fx-pref-height: 65px;
-    -fx-text-alignment: center;
-    -fx-alignment: center;
-}
-
-.wrong-letter {
-    -fx-background-color: -wrong-color;
-    -fx-border-color: -wrong-color;
-    -fx-text-fill: white;
-    -fx-font-size: 30px;
-    -fx-font-weight: bold;
-    -fx-border-width: 2px;
-    -fx-min-width: 62px;
-    -fx-min-height: 62px;
-    -fx-pref-width: 65px;
-    -fx-pref-height: 65px;
-    -fx-text-alignment: center;
-    -fx-alignment: center;
-}
-
-.correct-letter {
-    -fx-background-color: -correct-color;
-    -fx-border-color: -correct-color;
-    -fx-text-fill: white;
-    -fx-font-size: 30px;
-    -fx-font-weight: bold;
-    -fx-border-width: 2px;
-    -fx-min-width: 62px;
-    -fx-min-height: 62px;
-    -fx-pref-width: 65px;
-    -fx-pref-height: 65px;
-    -fx-text-alignment: center;
-    -fx-alignment: center;
-}
-
-.main-screen {
-    -fx-background-color: -background-color;
-    -fx-padding: 10px;
-}
-
-
-
-.keyboardCorrectColor {
-    -fx-background-color: -correct-color;
-    -fx-text-fill: white;
-    -fx-font-size: 13px;
-    -fx-font-weight: bold;
-    -fx-min-width: 43px;
-    -fx-min-height: 58px;
-    -fx-text-alignment: center;
-    -fx-alignment: center;
-    -fx-background-radius: 4px;
-}
-
-.keyboardPresentColor {
-    -fx-background-color: -present-color;
-    -fx-text-fill: white;
-    -fx-font-size: 13px;
-    -fx-font-weight: bold;
-    -fx-min-width: 43px;
-    -fx-min-height: 58px;
-    -fx-text-alignment: center;
-    -fx-alignment: center;
-    -fx-background-radius: 4px;
-}
-
-.keyboardWrongColor {
-    -fx-background-color: -wrong-color;
-    -fx-text-fill: white;
-    -fx-font-size: 13px;
-    -fx-font-weight: bold;
-    -fx-min-width: 43px;
-    -fx-min-height: 58px;
-    -fx-text-alignment: center;
-    -fx-alignment: center;
-    -fx-background-radius: 4px;
-}
-
-
-
-.big-font {
-    -fx-font-size: 22px;
-}
-
-.image-dimensions {
-    -fx-pref-height: 20;
-    -fx-pref-width: 20;
-}
-
-.correct-letter-example {
-    -fx-background-color: -correct-color;
-    -fx-border-color: -correct-color;
-    -fx-text-fill: white;
-    -fx-font-size: 27px;
-    -fx-font-weight: bold;
-    -fx-border-width: 1px;
-    -fx-min-width: 45px;
-    -fx-min-height: 45px;
-    -fx-pref-width: 45px;
-    -fx-pref-height: 45px;
-    -fx-text-alignment: center;
-    -fx-alignment: center;
-}
-
-.default-letter-example {
-    -fx-background-color: -background-color;
-    -fx-border-color: -empty-border-color;
-    -fx-text-fill: -text-fill-color;
-    -fx-font-size: 27px;
-    -fx-font-weight: bold;
-    -fx-border-width: 1px;
-    -fx-min-width: 45px;
-    -fx-min-height: 45px;
-    -fx-pref-width: 45px;
-    -fx-pref-height: 45px;
-    -fx-text-alignment: center;
-    -fx-alignment: center;
-}
-
-.present-letter-example {
-    -fx-background-color: -present-color;
-    -fx-border-color: -present-color;
-    -fx-text-fill: white;
-    -fx-font-size: 27px;
-    -fx-font-weight: bold;
-    -fx-border-width: 1px;
-    -fx-min-width: 45px;
-    -fx-min-height: 45px;
-    -fx-pref-width: 45px;
-    -fx-pref-height: 45px;
-    -fx-text-alignment: center;
-    -fx-alignment: center;
-}
-
-.wrong-letter-example {
-    -fx-background-color: -wrong-color;
-    -fx-border-color: -wrong-color;
-    -fx-text-fill: white;
-    -fx-font-size: 27px;
-    -fx-font-weight: bold;
-    -fx-border-width: 1px;
-    -fx-min-width: 45px;
-    -fx-min-height: 45px;
-    -fx-pref-width: 45px;
-    -fx-pref-height: 45px;
-    -fx-text-alignment: center;
-    -fx-alignment: center;
-}*/
 
 #borderPane {
     -fx-background-color: white;
     -fx-padding: 10px;
+}
+
+.isNotWord {
+    -fx-background-color: rgb(240, 240, 240);
+    -fx-border-color: -unlocked-border-color;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 10px;
+}
+
+.isNotWordLabel {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-text-fill: rgba(0, 37, 147, 1);
+    -fx-font-family: "Arial";
+}
+
+.winWordLabel {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-text-fill: rgba(0, 37, 147, 1);
+    -fx-font-family: "Arial";
+}
+
+.loseWordLabel {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-text-fill: rgba(0, 37, 147, 1);
+    -fx-font-family: "Arial";
 }

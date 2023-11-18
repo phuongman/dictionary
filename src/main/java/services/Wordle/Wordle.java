@@ -1,4 +1,4 @@
-package services.Wordle;
+package services;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -20,15 +20,10 @@ public class Wordle {
     private List<String> winWords = new ArrayList<>();
     private List<String> listWords = new ArrayList<>();
     private String winningWord;
-    private int[] stateLetter  = new int[26];
-    int cnt = 0;
 
     public Wordle() {
         initWinWords();
         initListWords();
-        for(int i = 0; i < 26; i++) {
-            stateLetter[i] = -1;
-        }
     }
 
     public void initWinWords() {
@@ -71,53 +66,30 @@ public class Wordle {
         return word.equals(winningWord);
     }
 
+    public boolean binarySearch(List<String> list, String word) {
+        int d = 0, c = list.size() - 1;
+        while (d <= c) {
+            int g = (d + c) >> 1;
+            if(list.get(g).equals(word)) return true;
+            if(list.get(g).compareTo(word) < 0) d = g + 1;
+            else c = g - 1;
+        }
+        return false;
+    }
     public boolean checkWord(String word) {
-        return (listWords.contains(word) || winWords.contains(word));
+        return (binarySearch(listWords, word) || binarySearch(winWords, word));
     }
 
     public String getWinningWord() {
         return winningWord;
     }
 
-    public void updateState(String word) {
-        cnt++;
-        for(int i = 0; i < word.length(); i++) {
-            if(word.charAt(i) == winningWord.charAt(i)) {
-                stateLetter[word.charAt(i) - 'a'] = 1;
-            } else {
-                boolean check = false;
-                for(int j = 0; j < winningWord.length(); j++) {
-                    if(word.charAt(i) == winningWord.charAt(j)) {
-                        stateLetter[word.charAt(i) - 'a'] = 2;
-                        check = true;
-                        break;
-                    }
-                }
-                if(!check) {
-                    stateLetter[word.charAt(i) - 'a'] = 0;
-                }
-            }
-        }
-     }
-
-    public boolean checkGameover() {
-        if(cnt == 6) {
-            return true;
-        }
-        return false;
+    public void reset() {
+        setWinningWord();
     }
 
-    public void reset() {
-        cnt = 0;
-        for(int i = 0; i < 26; i++) {
-            stateLetter[i] = -1;
-        }
+    public void rePlay() {
         setWinningWord();
 
-
-    }
-
-    public int getStateLetter(char c) {
-        return stateLetter[c - 'a'];
     }
 }
