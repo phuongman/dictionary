@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -17,6 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import Help.Helper;
 
 class QuizService extends Service<Void> {
     private final long delayMillis;
@@ -106,6 +106,7 @@ public class QuizController implements Initializable {
 
     @FXML
     private void onRadioButtonClicked(RadioButton selectedAnswer) {
+        Helper.playSound("/ui/sound/click.wav");
         if (answerselect) {
             // Nếu đã chọn một đáp án, không làm gì cả
             selectedAnswer.setSelected(false);
@@ -135,6 +136,7 @@ public class QuizController implements Initializable {
     }
     @FXML
     public void onActionPlay() {
+        Helper.playSound("/ui/sound/click.wav");
         informationQuiz.setVisible(true);
         preQuiz.setVisible(false);
         answerTable.setVisible(true);
@@ -283,10 +285,12 @@ public class QuizController implements Initializable {
         answerSelected = selectedAnswer;
         String answer = selectedAnswer.getText();
         if (quizManager.checkAnswer(answer)) {
+            Helper.playSound("/ui/sound/correct_answer.wav");
             System.out.println("Đúng");
             System.out.println("Đáp án đúng: " + quizManager.getQuiz().getAnswer_correct());
             selectedAnswer.setStyle("-fx-text-fill: #3cb371;");  // Đúng: màu xanh
         } else {
+            Helper.playSound("/ui/sound/wronganswer.wav");
             selectedAnswer.setStyle("-fx-text-fill: #b22222;");  // Sai: màu đỏ
             setColorAnswerCorrect();
         }
@@ -305,10 +309,12 @@ public class QuizController implements Initializable {
     }
 
     public void onActionExitQuizButton(ActionEvent actionEvent) {
+        Helper.playSound("/ui/sound/click.wav");
         System.exit(0);
     }
 
     public void onActionRePlayQuizButton(ActionEvent actionEvent) {
+        Helper.playSound("/ui/sound/click.wav");
         informationQuiz.setVisible(false);
         preQuiz.setVisible(true);
         answerTable.setVisible(false);

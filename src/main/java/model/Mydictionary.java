@@ -58,6 +58,8 @@ public class Mydictionary {
         return mydatabase.search(preWord);
     }
 
-
+    public ArrayList<String> getAllWord() {
+        return mydatabase.showAllWords();
+    }
 
 }

@@ -13,12 +13,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import services.Wordle;
 
-import java.io.File;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;

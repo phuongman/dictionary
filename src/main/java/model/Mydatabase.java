@@ -2,6 +2,7 @@ package model;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Mydatabase extends Database {
 
@@ -139,6 +140,25 @@ public class Mydatabase extends Database {
             throw new RuntimeException(e);
 
         }
+    }
+
+    public ArrayList<String> showAllWords() {
+        ArrayList<String> mywords = new ArrayList<>();
+        try {
+            preparedStatement = connection.prepareStatement("SELECT Word FROM mydata");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                mywords.add(resultSet.getString("word"));
+            }
+            closePreparedStatement();
+            closeResultSet();
+            System.out.println("truy vaans thành công");
+        } catch (Exception e) {
+            System.out.println("Lỗi truy vấn");
+            throw new RuntimeException(e);
+
+        }
+        return mywords;
     }
 
 }
