@@ -17,7 +17,7 @@
 
 <AnchorPane prefHeight="620.0" prefWidth="1200.0" styleClass="app-background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LearnController">
    <children>
-      <ListView fx:id="listView" layoutX="20.0" layoutY="110.0" onMouseClicked="#doubleClickWord" prefWidth="300.0" visible="false" />
+      <ListView fx:id="listView" layoutX="20.0" layoutY="110.0" onKeyPressed="#keyPressWord" onMouseClicked="#doubleClickWord" prefWidth="300.0" visible="false" />
       <Pane fx:id="pane" layoutX="345.0" layoutY="150.0" prefHeight="337.0" prefWidth="510.0">
          <children>
             <Label alignment="CENTER" layoutX="43.0" layoutY="41.0" text="Choose number of words">
