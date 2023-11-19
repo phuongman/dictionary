@@ -1,5 +1,6 @@
 package ui;
 
+import Help.Helper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import static ui.AppController.*;
 
 public class GameController implements Initializable {
 
@@ -29,6 +31,7 @@ public class GameController implements Initializable {
 
     @FXML
     public void onActionwordlebutton(ActionEvent actionEvent) {
+        Helper.playSound("ui/sound/click.wav");
         loadTab("fxml/Wordle.fxml");
     }
 
@@ -43,7 +46,11 @@ public class GameController implements Initializable {
     }
 
     public void onActionquizbutton() {
+        Helper.playSound("ui/sound/click.wav");
         loadTab("fxml/Quiz.fxml");
+    }
+
+    private void loadTab(String s) {
     }
 
     public void onMouseEnteredquizbutton() {
@@ -75,8 +82,5 @@ public class GameController implements Initializable {
                         "-fx-background-radius: 20 20 20 20;"
         );
     }
-
-    public void loadTab(String path) {
-
-    }
+    
 }

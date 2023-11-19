@@ -62,4 +62,5 @@ public class Mydictionary {
         return mydatabase.showAllWords();
     }
 
+
 }

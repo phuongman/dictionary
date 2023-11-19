@@ -2,6 +2,8 @@ package services;
 
 import model.Word;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,13 +13,13 @@ import static model.Test.*;
 public class LearnWord {
     private int cntLearnerWords;
     // Lấy ngày hiện tại
-    Date currentDate = new Date();
+    LocalDate currentDate = LocalDate.now();
 
-    // Sử dụng ngày để tạo một số ngẫu nhiên
-    long randomSeed = currentDate.getTime();
+    // Sử dụng ngày hiện tại để tạo một số ngẫu nhiên
+    long seed = currentDate.toEpochDay(); // Lấy số ngày từ Epoch
 
-    // Sử dụng số ngẫu nhiên để chọn từ
-    Random random = new Random(randomSeed);
+    // Sử dụng số ngẫu nhiên để khởi tạo Random
+    Random random = new Random(seed);
     private List<Word> wordsToLearn = new ArrayList<>();
 
     public LearnWord() {

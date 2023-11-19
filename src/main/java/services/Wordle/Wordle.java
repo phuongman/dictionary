@@ -9,14 +9,8 @@ public class Wordle {
      * Khai báo các từ winning.
      */
 
-    // Lấy ngày hiện tại
-    Date currentDate = new Date();
-
-    // Sử dụng ngày để tạo một số ngẫu nhiên
-    long randomSeed = currentDate.getTime();
-
     // Sử dụng số ngẫu nhiên để chọn từ
-    Random random = new Random(randomSeed);
+    Random random = new Random();
     private List<String> winWords = new ArrayList<>();
     private List<String> listWords = new ArrayList<>();
     private String winningWord;

@@ -8,14 +8,9 @@ public class ChooseQuestion {
     /**
      * Tạo một số ngẫu nhiên để tránh việc lặp lại các câu hỏi.
      */
-    // Lấy ngày hiện tại
-    Date currentDate = new Date();
-
-    // Sử dụng ngày để tạo một số ngẫu nhiên
-    long randomSeed = currentDate.getTime();
 
     // Sử dụng số ngẫu nhiên để chọn từ
-    Random random = new Random(randomSeed);
+    Random random = new Random();
     private final String URL = "jdbc:sqlite:src/main/resources/questions.db";
     private Connection connection = null;
     private PreparedStatement preparedStatement = null;

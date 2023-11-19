@@ -379,9 +379,11 @@ public class WordleController implements Initializable {
         newPane.setLayoutY(170);
         Label label = new Label();
         if (b) {
+            Helper.playSound("/ui/sound/win.wav");
             label.setText("You win");
             label.getStyleClass().add("winWordLabel");
         } else {
+            Helper.playSound("/ui/sound/lose.wav");
             label.setText("You lose \n The word is " + wordleManager.getWinningWord().toUpperCase() + "");
             label.getStyleClass().add("loseWordLabel");
         }
