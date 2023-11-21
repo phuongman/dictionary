@@ -25,19 +25,19 @@
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <Button fx:id="fiveWordButton" layoutX="199.0" layoutY="114.0" mnemonicParsing="false" onAction="#onActionFive" prefHeight="41.0" prefWidth="112.0" style="-fx-background-radius: 30; -fx-border-radius: 20; -fx-background-color: steelblue;" text="Five" textFill="WHITE">
+            <Button fx:id="fiveWordButton" layoutX="199.0" layoutY="114.0" mnemonicParsing="false" onAction="#onActionFive" onMouseEntered="#onMouseEnteredFive" onMouseExited="#onMouseExitedFive" prefHeight="41.0" prefWidth="112.0" style="-fx-background-radius: 30; -fx-border-radius: 20; -fx-background-color: #455ede;" text="Five" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="18.0" />
+                  <Font name="Serif Bold" size="19.0" />
                </font>
             </Button>
-            <Button fx:id="tenWordButton" layoutX="199.0" layoutY="185.0" mnemonicParsing="false" onAction="#onActionTen" prefHeight="41.0" prefWidth="112.0" style="-fx-background-radius: 30; -fx-border-radius: 20; -fx-background-color: steelblue;" text="Ten" textFill="WHITE">
+            <Button fx:id="tenWordButton" layoutX="199.0" layoutY="185.0" mnemonicParsing="false" onAction="#onActionTen" onMouseEntered="#onMouseEnteredTen" onMouseExited="#onMouseExitedTen" prefHeight="41.0" prefWidth="112.0" style="-fx-background-radius: 30; -fx-border-radius: 20; -fx-background-color: #455ede;" text="Ten" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="18.0" />
+                  <Font name="Serif Bold" size="19.0" />
                </font>
             </Button>
-            <Button fx:id="fifteenWordButton" layoutX="199.0" layoutY="258.0" mnemonicParsing="false" onAction="#onActionFifteen" prefHeight="41.0" prefWidth="112.0" style="-fx-background-radius: 30; -fx-border-radius: 20; -fx-background-color: steelblue;" text="Fifteen" textFill="WHITE">
+            <Button fx:id="fifteenWordButton" layoutX="199.0" layoutY="258.0" mnemonicParsing="false" onAction="#onActionFifteen" onMouseEntered="#onMouseEnteredFifteen" onMouseExited="#onMouseExitedFifteen" prefHeight="41.0" prefWidth="112.0" style="-fx-background-radius: 30; -fx-border-radius: 20; -fx-background-color: #455ede;" text="Fifteen" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="18.0" />
+                  <Font name="Serif Bold" size="19.0" />
                </font>
             </Button>
          </children>
@@ -99,5 +99,10 @@
             <String fx:value="scroll-view-background" />
          </styleClass>
       </AnchorPane>
+      <Label fx:id="listWords" layoutX="130.0" layoutY="73.0" text="List Words" textFill="#d02020" visible="false">
+         <font>
+            <Font name="Serif Bold Italic" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -22,7 +22,7 @@
                   <Font name="Serif Regular" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="playButton" layoutX="29.0" layoutY="45.0" mnemonicParsing="false" onAction="#onActionPlay" onMouseEntered="#onMouseEnteredPlay" onMouseExited="#exitMouseDragPlay" prefHeight="37.0" prefWidth="142.0" style="-fx-border-radius: 20px; -fx-background-radius: 20 20 20 20; -fx-background-color: steelblue;" text="Bắt đầu" textAlignment="CENTER" underline="true">
+            <Button fx:id="playButton" layoutX="29.0" layoutY="45.0" mnemonicParsing="false" onAction="#onActionPlay" onMouseEntered="#onMouseEnteredPlay" onMouseExited="#exitMouseDragPlay" prefHeight="37.0" prefWidth="142.0" style="-fx-border-radius: 20px; -fx-background-radius: 30 30 30 30; -fx-background-color: #455ede;" text="Bắt đầu" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font name="Serif Bold" size="18.0" />
                </font>

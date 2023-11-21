@@ -1,5 +1,6 @@
 package ui;
 
+import Help.Helper;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -58,6 +59,7 @@ public class DeleteWordController {
      */
     public void quit() {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
+        Helper.playSound("/ui/sound/click.wav");
         stage.close();
     }
 }

@@ -1,5 +1,6 @@
 package ui;
 
+import Help.Helper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -193,6 +194,7 @@ public class MyNoteController {
      * Thêm từ vào mynote.
      */
     public void addWord(ActionEvent e) {
+        Helper.playSound("/ui/sound/click.wav");
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/AddWord.fxml"));
             Parent root = loader.load();
@@ -216,6 +218,7 @@ public class MyNoteController {
      * Sửa từ trong mynote.
      */
     public void editWord() {
+        Helper.playSound("/ui/sound/click.wav");
         textFlowView.setDisable(true);
         textFlowView.setVisible(false);
         textArea.setDisable(false);
@@ -248,6 +251,7 @@ public class MyNoteController {
      * Xóa từ trong mynote.
      */
     public void deleteWord(ActionEvent e) {
+        Helper.playSound("/ui/sound/click.wav");
         if (!checkExist()) return;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/DeleteWord.fxml"));

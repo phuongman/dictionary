@@ -1,5 +1,6 @@
 package ui;
 
+import Help.Helper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -58,6 +59,7 @@ public class AppController {
      * load tab từ điển.
      */
     public void loadDictionary() {
+        Helper.playSound("/ui/sound/click.wav");
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = dictionaryButton;
         currentButton.getStyleClass().add("button-clicked");
@@ -72,6 +74,7 @@ public class AppController {
      * load tab google translate.
      */
     public void loadGoogleTranslate() {
+        Helper.playSound("/ui/sound/click.wav");
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = googleTranslateButton;
         currentButton.getStyleClass().add("button-clicked");
@@ -86,6 +89,7 @@ public class AppController {
      * load tab learn.
      */
     public void loadLearn() {
+        Helper.playSound("/ui/sound/click.wav");
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = learnButton;
         currentButton.getStyleClass().add("button-clicked");
@@ -100,13 +104,14 @@ public class AppController {
      * load tab game.
      */
     public void loadGame() {
+        Helper.playSound("/ui/sound/click.wav");
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = gameButton;
         currentButton.getStyleClass().add("button-clicked");
         if (state == 5) textField.setText("");
         if (state != 4) {
             state = 4;
-            loadTab("fxml/Wordle.fxml");
+            loadTab("fxml/Quiz.fxml");
         }
     }
 
@@ -114,6 +119,7 @@ public class AppController {
      * load tab my note.
      */
     public void loadMyNote() {
+        Helper.playSound("/ui/sound/click.wav");
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = myNoteButton;
         currentButton.getStyleClass().add("button-clicked");

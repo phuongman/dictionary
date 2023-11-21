@@ -127,11 +127,11 @@ public class QuizController implements Initializable {
     @FXML
     public void onMouseEnteredPlay() {
         playButton.setStyle(
-                "-fx-background-color: lightsteelblue;" +
-                        "-fx-text-fill: black;" +
+                "-fx-background-color: #6A7EE4;" +
+                        "-fx-text-fill: white;" +
                         "-fx-border-color: darkgray;" +
                         "-fx-border-radius: 20px; " +
-                        "-fx-background-radius: 20 20 20 20;"
+                        "-fx-background-radius: 30 30 30 30;"
         );
     }
     @FXML
@@ -301,10 +301,10 @@ public class QuizController implements Initializable {
 
     public void exitMouseDragPlay() {
         playButton.setStyle(
-                "-fx-background-color: steelblue;" +
-                        "-fx-text-fill: black;" +
-                        "-fx-border-radius: 20px;" +
-                        "-fx-background-radius: 20 20 20 20;"
+                "-fx-background-color: #455ede;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-border-radius: 20px; " +
+                        "-fx-background-radius: 30 30 30 30;"
         );
     }
 

@@ -1,5 +1,6 @@
 package ui;
 
+import Help.Helper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -25,6 +26,7 @@ public class LearnController {
     public Pane pane;
     public Label currentPronounceView;
     public AnchorPane PaneMeaning;
+    public Label listWords;
     @FXML private TextFlow textFlowView;
     @FXML
     private Label currentWordView;
@@ -38,11 +40,13 @@ public class LearnController {
         PaneMeaning.setVisible(true);
         pane.setVisible(false);
         scrollView.setVisible(true);
+        listWords.setVisible(true);
         learnWord.setCntLearnerWords(cntLearnerWords);
         learnWord.initWords();
         listView.getItems().clear();
         listView.setStyle("-fx-font-size: 15px;");
         listView.setPrefHeight(cntLearnerWords * 30);
+        listWords.setLayoutY((620 - cntLearnerWords * 30) / 2 - 40);
         listView.setLayoutY((620 - cntLearnerWords * 30) / 2);
         for(int i = 0; i < learnWord.getWordsToLearn().size(); i++) {
             listView.getItems().add(learnWord.getWordsToLearn().get(i).getWordTarget());
@@ -52,16 +56,19 @@ public class LearnController {
 
     }
     public void onActionFive(ActionEvent actionEvent) {
+        Helper.playSound("/ui/sound/click.wav");
         onActionChooseNumWord(5);
 
     }
 
     public void onActionTen(ActionEvent actionEvent) {
+        Helper.playSound("/ui/sound/click.wav");
         onActionChooseNumWord(10);
 
     }
 
     public void onActionFifteen(ActionEvent actionEvent) {
+        Helper.playSound("/ui/sound/click.wav");
         onActionChooseNumWord(15);
 
     }
@@ -135,5 +142,62 @@ public class LearnController {
             String word = (String) listView.getSelectionModel().getSelectedItem();
             lookupWord(word);
         }
+    }
+
+    public void onMouseEnteredFive(MouseEvent mouseEvent) {
+        fiveWordButton.setStyle(
+                "-fx-background-color: #6A7EE4;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-border-color: darkgray;" +
+                        "-fx-border-radius: 20px; " +
+                        "-fx-background-radius: 30 30 30 30;"
+        );
+    }
+
+    public void onMouseExitedFive(MouseEvent mouseEvent) {
+        fiveWordButton.setStyle(
+                "-fx-background-color: #455ede;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-border-radius: 20px; " +
+                        "-fx-background-radius: 30 30 30 30;"
+        );
+    }
+
+    public void onMouseEnteredTen(MouseEvent mouseEvent) {
+        tenWordButton.setStyle(
+                "-fx-background-color: #6A7EE4;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-border-color: darkgray;" +
+                        "-fx-border-radius: 20px; " +
+                        "-fx-background-radius: 30 30 30 30;"
+        );
+    }
+
+    public void onMouseExitedTen(MouseEvent mouseEvent) {
+        tenWordButton.setStyle(
+                "-fx-background-color: #455ede;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-border-radius: 20px; " +
+                        "-fx-background-radius: 30 30 30 30;"
+        );
+    }
+
+    public void onMouseEnteredFifteen(MouseEvent mouseEvent) {
+        fifteenWordButton.setStyle(
+                "-fx-background-color: #6A7EE4;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-border-color: darkgray;" +
+                        "-fx-border-radius: 20px; " +
+                        "-fx-background-radius: 30 30 30 30;"
+        );
+    }
+
+    public void onMouseExitedFifteen(MouseEvent mouseEvent) {
+        fifteenWordButton.setStyle(
+                "-fx-background-color: #455ede;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-border-radius: 20px; " +
+                        "-fx-background-radius: 30 30 30 30;"
+        );
     }
 }

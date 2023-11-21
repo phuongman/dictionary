@@ -58,4 +58,22 @@ public class Mydictionary {
         if (preWord == null) return mydatabase.showAllWords();
         return mydatabase.search(preWord);
     }
+
+    public ArrayList<String> getAllWord() {
+        return mydatabase.showAllWords();
+    }
+
+    public static void main(String[] args) {
+        Mydictionary mydictionary = new Mydictionary();
+        Myword myword = new Myword();
+        myword.setWord("hello");
+        myword.setMeaning("xin chào");
+        mydictionary.add(myword);
+        Myword newWord = new Myword("hello1", "xin chào1");
+        mydictionary.edit(newWord, "hello");
+        Myword res = mydictionary.lookup("hello1");
+        System.out.println(res.getWord() + " " + res.getMeaning());
+        mydictionary.closeMydictionary();
+    }
+
 }
