@@ -48,6 +48,7 @@ public class LearnController {
             listView.getItems().add(learnWord.getWordsToLearn().get(i).getWordTarget());
         }
         listView.setVisible(true);
+        pronounceButton.setVisible(false);
 
     }
     public void onActionFive(ActionEvent actionEvent) {
@@ -119,7 +120,7 @@ public class LearnController {
         }
     }
     public void doubleClickWord(MouseEvent e) {
-        if (e.getButton().equals(MouseButton.PRIMARY) && e.getClickCount() > 1) {
+        if (e.getButton().equals(MouseButton.PRIMARY) && e.getClickCount() >= 1) {
             String word = (String) listView.getSelectionModel().getSelectedItem();
             lookupWord(word);
         }

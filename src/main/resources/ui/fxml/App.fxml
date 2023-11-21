@@ -16,7 +16,7 @@
          <children>
             <AnchorPane prefHeight="110.0" prefWidth="332.0">
                <children>
-                  <TextField fx:id="textField" layoutX="28.0" layoutY="28.0" onAction="#lookupWord" onKeyPressed="#keyPressTextField" onKeyTyped="#loadListView" prefHeight="55.0" prefWidth="259.0" stylesheets="@../css/App.css">
+                  <TextField fx:id="textField" layoutX="28.0" layoutY="28.0" onAction="#lookupWord" onKeyPressed="#keyPressTextField" onKeyTyped="#loadListView" prefHeight="55.0" prefWidth="259.0" promptText="Tra từ..." stylesheets="@../css/App.css">
                      <font>
                         <Font size="18.0" />
                      </font>

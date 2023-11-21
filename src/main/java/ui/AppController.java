@@ -13,7 +13,8 @@ import java.util.Objects;
 import javafx.scene.layout.BorderPane;
 
 public class AppController {
-    public DictionaryController dictionaryController;
+    public static DictionaryController dictionaryController;
+    public static MyNoteController myNoteController;
     public String curWord = "";
     private int state;
     @FXML private BorderPane borderPane;
@@ -32,8 +33,7 @@ public class AppController {
     @FXML
     public void initialize() {
         try {
-            state = 1;
-            loadTab("fxml/Dictionary.fxml");
+            loadDictionary();
         } catch (Exception e) {
             System.out.println("AppController error");
         }
@@ -47,6 +47,7 @@ public class AppController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
             Parent root = loader.load();
             if (state == 1) dictionaryController = loader.getController();
+            if (state == 5) myNoteController = loader.getController();
             borderPane.setCenter(root);
         } catch (IOException e) {
             if (borderPane.getCenter() == null) System.out.println("borderPane is null");
@@ -60,6 +61,7 @@ public class AppController {
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = dictionaryButton;
         currentButton.getStyleClass().add("button-clicked");
+        if (state == 5) textField.setText("");
         if (state != 1) {
             state = 1;
             loadTab("fxml/Dictionary.fxml");
@@ -73,6 +75,7 @@ public class AppController {
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = googleTranslateButton;
         currentButton.getStyleClass().add("button-clicked");
+        if (state == 5) textField.setText("");
         if (state != 2) {
             state = 2;
             loadTab("fxml/Translate.fxml");
@@ -86,6 +89,7 @@ public class AppController {
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = learnButton;
         currentButton.getStyleClass().add("button-clicked");
+        if (state == 5) textField.setText("");
         if (state != 3) {
             state = 3;
             loadTab("fxml/Learn.fxml");
@@ -99,6 +103,7 @@ public class AppController {
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = gameButton;
         currentButton.getStyleClass().add("button-clicked");
+        if (state == 5) textField.setText("");
         if (state != 4) {
             state = 4;
             loadTab("fxml/Wordle.fxml");
@@ -112,6 +117,7 @@ public class AppController {
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = myNoteButton;
         currentButton.getStyleClass().add("button-clicked");
+        textField.setText("");
         if (state != 5) {
             state = 5;
             loadTab("fxml/MyNote.fxml");
@@ -128,6 +134,9 @@ public class AppController {
         if (state == 1) {
             dictionaryController.lookupWordDictionary();
         }
+        if (state == 5) {
+            myNoteController.lookupWordMyNote();
+        }
     }
 
     /**
@@ -136,6 +145,9 @@ public class AppController {
     public void loadListView() {
         if (state == 1) {
             dictionaryController.loadListViewDictionary();
+        }
+        if (state == 5) {
+            myNoteController.loadListViewMyNote();
         }
     }
 
@@ -146,9 +158,15 @@ public class AppController {
         if (e.getCode() == KeyCode.ENTER) {
             lookupWord();
         } else if (e.getCode() == KeyCode.DOWN) {
-            loadDictionary();
-            dictionaryController.listView.requestFocus();
-            dictionaryController.listView.getSelectionModel().select(0);
+            if (state == 1) {
+                loadDictionary();
+                dictionaryController.listView.requestFocus();
+                dictionaryController.listView.getSelectionModel().select(0);
+            } else if (state == 5) {
+                loadMyNote();
+                myNoteController.listViewMyNote.requestFocus();
+                myNoteController.listViewMyNote.getSelectionModel().select(0);
+            }
         }
     }
 }

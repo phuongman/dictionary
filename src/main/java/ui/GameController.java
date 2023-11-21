@@ -32,7 +32,7 @@ public class GameController implements Initializable {
     @FXML
     public void onActionwordlebutton(ActionEvent actionEvent) {
         Helper.playSound("ui/sound/click.wav");
-        loadTab("fxml/Wordle.fxml");
+        loadTab("fxml/Quiz.fxml");
     }
 
     public void onMouseEnteredwordlebutton(MouseEvent mouseEvent) {

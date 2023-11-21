@@ -55,12 +55,7 @@ public class Mydictionary {
      * tìm kiếm từ trong từ điển.
      */
     public ArrayList<String> search(String preWord) {
+        if (preWord == null) return mydatabase.showAllWords();
         return mydatabase.search(preWord);
     }
-
-    public ArrayList<String> getAllWord() {
-        return mydatabase.showAllWords();
-    }
-
-
 }

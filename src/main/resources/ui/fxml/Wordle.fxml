@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1200.0" stylesheets="@../css/Wordle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.WordleController">
     <children>
-        <BorderPane fx:id="borderPane" layoutX="314.0" layoutY="10.0" prefHeight="600.0" prefWidth="550.0">
+        <BorderPane fx:id="borderPane" layoutX="314.0" layoutY="10.0" prefHeight="600.0" prefWidth="550.0" style="-fx-border-color: black; -fx-border-width: 2;">
             <top>
                 <Pane prefHeight="40.0" prefWidth="550.0" style="-fx-background-color: rgb(90, 90, 90);" BorderPane.alignment="CENTER">
                     <children>
@@ -56,7 +56,7 @@
                 </Pane>
             </top>
             <center>
-                <GridPane fx:id="gridPane" alignment="CENTER" hgap="5.0" vgap="5.0" onKeyPressed="#onKeyPressed">
+                <GridPane fx:id="gridPane" alignment="CENTER" hgap="5.0" onKeyPressed="#onKeyPressed" vgap="5.0">
                    <BorderPane.margin>
                       <Insets bottom="10.0" top="10.0" />
                    </BorderPane.margin>

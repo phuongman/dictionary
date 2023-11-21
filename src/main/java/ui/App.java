@@ -30,9 +30,6 @@ public class App extends Application {
     }
 
     public static Dictionary dictionary = new Dictionary();
-    public static Dictionary getDictionary() {
-        return dictionary;
-    }
     public static Mydictionary mydictionary = new Mydictionary();
 
     public static FXMLLoader loaderApp = new FXMLLoader(App.class.getResource("fxml/App.fxml"));

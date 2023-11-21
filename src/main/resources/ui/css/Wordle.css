@@ -81,12 +81,6 @@
     -fx-border-color: -unlocked-border-color;
 }
 
-
-#borderPane {
-    -fx-background-color: white;
-    -fx-padding: 10px;
-}
-
 .isNotWord {
     -fx-background-color: rgb(240, 240, 240);
     -fx-border-color: -unlocked-border-color;

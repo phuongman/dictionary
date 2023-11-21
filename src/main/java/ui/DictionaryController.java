@@ -60,7 +60,7 @@ public class DictionaryController {
                         };
                     }
                 });
-        List<String> loadWords = App.getDictionary().search(appController.textField.getText());
+        List<String> loadWords = App.dictionary.search(appController.textField.getText());
         listView.getItems().addAll(loadWords);
     }
 
@@ -68,8 +68,9 @@ public class DictionaryController {
      * load nghĩa của từ được chọn.
      */
     public void lookupWordDictionary() {
+        if (appController.textField.getText() == null || appController.textField.getText().isEmpty()) return;
         appController.curWord = appController.textField.getText();
-        Word word = App.getDictionary().lookup(appController.curWord);
+        Word word = App.dictionary.lookup(appController.curWord);
 
         currentWordView.setText(appController.curWord);
         if (word.getWordPronounce() != null) currentPronounceView.setText(" " + word.getWordPronounce());

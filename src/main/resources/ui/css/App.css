@@ -1,7 +1,3 @@
-.root {
-
-}
-
 .appButton {
     -fx-background-color: transparent;
     -fx-background-radius: 30 30 0 0;
@@ -15,13 +11,9 @@
     -fx-background-color: #e8e8e8;
 }
 
-/*#pronounceButton {
-    -fx-background-image: url(../icon/volume24.png);
-    -fx-background-size: 24;
-    -fx-background-repeat: no-repeat;
-    -fx-background-color: white;
-    -fx-background-position: left;
-}*/
+.button {
+    -fx-background-color: transparent;
+}
 
 #findingButton {
     -fx-background-image: url(../icon/search24.png);
@@ -45,6 +37,23 @@
 
 .scroll-view-background {
     -fx-background-radius: 14 14 0 0;
+}
+
+.text-areaMyNote {
+    -fx-background-color: transparent;
+}
+
+.text-areaMyNote .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-areaMyNote .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+
+.text-areaMyNote .scroll-pane .content{
+    -fx-background-color: transparent;
 }
 
 .transparent-background {
@@ -79,10 +88,43 @@
     /*-fx-border-color: black;*/
 }
 
-#leftPronounceButton, #rightPronounceButton, #swapButton, #pronounceButton {
+#leftPronounceButton, #rightPronounceButton, #swapButton, #pronounceButton, #pronounceButtonMyNote {
     -fx-background-radius: 50%;
 }
 
-#leftPronounceButton:hover, #rightPronounceButton:hover, #swapButton:hover, #pronounceButton:hover {
+#leftPronounceButton:hover, #rightPronounceButton:hover, #swapButton:hover, #pronounceButton:hover, #pronounceButtonMyNote:hover {
     -fx-background-color: rgba(90, 90, 90, 0.3);
+}
+
+/*                                           My Note                                             */
+#textFieldMyNote {
+    -fx-background-color: transparent;
+}
+.myNoteButton {
+    -fx-background-radius: 30;
+    -fx-border-width: 2;
+    -fx-border-color: transparent;
+}
+.myNoteButton:hover {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 30;
+}
+#addButton {
+    -fx-background-color: #72d572;
+}
+#editButton {
+    -fx-background-color: #ce93d8;
+}
+#deleteButton {
+    -fx-background-color: #f69988;
+}
+.deleteButton {
+    -fx-background-color: #f69988;
+}
+.okButton {
+    -fx-background-color: #72d572;
+}
+.cancelButton {
+    -fx-background-color: #bdbdbd;
 }
