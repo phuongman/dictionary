@@ -231,5 +231,14 @@
                 </Button>
             </children>
         </Pane>
+      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#quitWordle" prefHeight="84.0" prefWidth="84.0" styleClass="homeButton" stylesheets="@../css/App.css">
+         <graphic>
+            <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
     </children>
 </AnchorPane>

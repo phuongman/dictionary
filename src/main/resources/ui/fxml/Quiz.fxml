@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,26 +18,26 @@
 
 <AnchorPane prefHeight="620.0" prefWidth="1200.0" style="-fx-background-color: #e8e8e8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.QuizController">
    <children>
-      <Pane fx:id="preQuiz" layoutX="500.0" layoutY="272.0" prefHeight="89.0" prefWidth="200.0">
+      <Pane fx:id="preQuiz" layoutX="407.0" layoutY="250.0">
          <children>
-            <Label layoutX="6.0" layoutY="2.0" prefHeight="24.0" prefWidth="189.0" text="Chọn một đáp án đúng.">
+            <Label layoutX="6.0" layoutY="2.0" prefHeight="24.0" text="Chọn một đáp án đúng.">
                <font>
-                  <Font name="Serif Regular" size="20.0" />
+                  <Font name="Comic Sans MS Bold" size="36.0" />
                </font>
             </Label>
-            <Button fx:id="playButton" layoutX="29.0" layoutY="45.0" mnemonicParsing="false" onAction="#onActionPlay" onMouseEntered="#onMouseEnteredPlay" onMouseExited="#exitMouseDragPlay" prefHeight="37.0" prefWidth="142.0" style="-fx-border-radius: 20px; -fx-background-radius: 30 30 30 30; -fx-background-color: #455ede;" text="Bắt đầu" textAlignment="CENTER" textFill="WHITE" underline="true">
+            <Button fx:id="playButton" layoutX="131.0" layoutY="68.0" mnemonicParsing="false" onAction="#onActionPlay" onMouseEntered="#onMouseEnteredPlay" onMouseExited="#exitMouseDragPlay" prefHeight="37.0" prefWidth="142.0" style="-fx-border-radius: 20px; -fx-background-radius: 30 30 30 30; -fx-background-color: #455ede;" text="Bắt đầu" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
-                  <Font name="Serif Bold" size="18.0" />
+                  <Font name="Comic Sans MS Bold" size="24.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Label fx:id="Require" alignment="CENTER" layoutX="97.0" layoutY="183.0" prefWidth="1024.0" text="Điền vào chỗ trống:" textAlignment="CENTER" visible="false" wrapText="true">
+      <Label fx:id="Require" alignment="CENTER" layoutX="97.0" layoutY="171.0" prefWidth="1024.0" text="Điền vào chỗ trống:" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="Serif Regular" size="20.0" />
+            <Font name="Comic Sans MS Bold" size="28.0" />
          </font>
       </Label>
-      <GridPane fx:id="answerTable" gridLinesVisible="true" layoutX="200.0" layoutY="376.0" prefHeight="214.0" prefWidth="801.0" visible="false">
+      <GridPane fx:id="answerTable" gridLinesVisible="true" layoutX="200.0" layoutY="376.0" prefHeight="214.0" prefWidth="801.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -44,48 +47,60 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <RadioButton fx:id="answerA" mnemonicParsing="false" prefHeight="24.0" prefWidth="408.0" wrapText="true">
+            <RadioButton fx:id="answerA" mnemonicParsing="false" prefHeight="106.0" prefWidth="401.0" wrapText="true">
                <font>
-                  <Font name="Serif Regular" size="18.0" />
+                  <Font name="Comic Sans MS Bold" size="20.0" />
                </font>
                <toggleGroup>
                   <ToggleGroup fx:id="Choices" />
                </toggleGroup>
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
             </RadioButton>
-            <RadioButton fx:id="answerC" mnemonicParsing="false" prefWidth="481.0" toggleGroup="$Choices" wrapText="true" GridPane.rowIndex="1">
+            <RadioButton fx:id="answerC" mnemonicParsing="false" prefHeight="100.0" prefWidth="481.0" toggleGroup="$Choices" wrapText="true" GridPane.rowIndex="1">
                <font>
-                  <Font name="Serif Regular" size="18.0" />
+                  <Font name="Comic Sans MS Bold" size="20.0" />
                </font>
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
             </RadioButton>
-            <RadioButton fx:id="answerD" mnemonicParsing="false" prefWidth="517.0" toggleGroup="$Choices" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <RadioButton fx:id="answerD" mnemonicParsing="false" prefHeight="100.0" prefWidth="517.0" toggleGroup="$Choices" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font name="Serif Regular" size="18.0" />
+                  <Font name="Comic Sans MS Bold" size="20.0" />
                </font>
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
             </RadioButton>
-            <RadioButton fx:id="answerB" mnemonicParsing="false" prefWidth="426.0" toggleGroup="$Choices" wrapText="true" GridPane.columnIndex="1">
+            <RadioButton fx:id="answerB" mnemonicParsing="false" prefHeight="100.0" prefWidth="426.0" toggleGroup="$Choices" wrapText="true" GridPane.columnIndex="1">
                <font>
-                  <Font name="Serif Regular" size="18.0" />
+                  <Font name="Comic Sans MS Bold" size="20.0" />
                </font>
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
             </RadioButton>
          </children>
       </GridPane>
-      <HBox fx:id="informationQuiz" layoutX="109.0" layoutY="14.0" prefHeight="100.0" prefWidth="1000.0" visible="false">
+      <HBox fx:id="informationQuiz" layoutX="196.0" layoutY="14.0" prefHeight="100.0" prefWidth="913.0">
          <children>
             <Label fx:id="numberQuiz" prefHeight="17.0" prefWidth="516.0" text="Câu:">
                <font>
-                  <Font name="Serif Regular" size="18.0" />
+                  <Font name="Comic Sans MS" size="26.0" />
                </font>
             </Label>
             <Label fx:id="statusQuiz" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="519.0" text="Đúng:  Sai:">
                <font>
-                  <Font name="Serif Regular" size="18.0" />
+                  <Font name="Comic Sans MS" size="26.0" />
                </font>
             </Label>
          </children>
       </HBox>
-      <Label fx:id="Question" alignment="CENTER" layoutX="97.0" layoutY="214.0" prefWidth="1024.0" text="How ... you do?" textAlignment="CENTER" visible="false">
+      <Label fx:id="Question" alignment="CENTER" layoutX="97.0" layoutY="214.0" prefWidth="1024.0" text="How ... you do?" textAlignment="CENTER">
          <font>
-            <Font name="Serif Bold Italic" size="20.0" />
+            <Font name="Comic Sans MS Italic" size="24.0" />
          </font>
       </Label>
       <ProgressBar fx:id="TimerProgressBar" layoutX="501.0" layoutY="332.0" prefWidth="200.0" progress="0.0" visible="false" />
@@ -93,12 +108,12 @@
          <children>
             <Label fx:id="TitleScore" alignment="CENTER" layoutY="41.0" prefHeight="28.0" prefWidth="350.0" text="Quiz Score" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="Serif Bold Italic" size="24.0" />
+                  <Font name="Serif Bold Italic" size="30.0" />
                </font>
             </Label>
             <Label fx:id="YourScore" alignment="CENTER" layoutY="83.0" prefHeight="20.0" prefWidth="350.0" text="Your score:1/10">
                <font>
-                  <Font name="Serif Regular" size="18.0" />
+                  <Font name="Serif Regular" size="20.0" />
                </font>
             </Label>
             <Button fx:id="ExitQuizButton" layoutX="141.0" layoutY="147.0" mnemonicParsing="false" onAction="#onActionExitQuizButton" prefHeight="29.0" prefWidth="69.0" style="-fx-background-color: steelblue;" text="Exit">
@@ -113,5 +128,14 @@
             </Button>
          </children>
       </AnchorPane>
+      <Button fx:id="homeButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#quitQuiz" prefHeight="84.0" prefWidth="84.0" styleClass="homeButton" stylesheets="@../css/App.css">
+         <graphic>
+            <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

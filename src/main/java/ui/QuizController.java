@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import services.Quiz.QuizManager;
 
 import java.net.URL;
@@ -39,6 +40,8 @@ class QuizService extends Service<Void> {
 public class QuizController implements Initializable {
     private QuizService quizService;
     private QuizManager quizManager = new QuizManager();
+
+    public AppController appController;
     @FXML
     public Label Question;
     @FXML
@@ -75,6 +78,8 @@ public class QuizController implements Initializable {
     private Button ExitQuizButton;
     @FXML
     private Button RePlayQuizButton;
+    @FXML
+    private Button homeButton;
 
     private Timer timer;
     private int currentTimeInSeconds = 0;
@@ -102,6 +107,11 @@ public class QuizController implements Initializable {
         answerC.setOnMouseClicked(event -> onRadioButtonClicked(answerC));
         answerD.setOnMouseClicked(event -> onRadioButtonClicked(answerD));
 
+        try {
+            appController = App.loaderApp.getController();
+        } catch (Exception e) {
+            System.out.println("ChooseGameController error");
+        }
     }
 
     @FXML
@@ -322,5 +332,13 @@ public class QuizController implements Initializable {
         Question.setVisible(false);
         Require.setVisible(false);
         Score.setVisible(false);
+    }
+
+    /**
+     * Quay về màn hình chính.
+     */
+    public void quitQuiz() {
+        Helper.playSound("/ui/sound/click.wav");
+        appController.loadTab("fxml/ChooseGame.fxml");
     }
 }

@@ -44,6 +44,7 @@ public class AppController {
      * load tab.
      */
     public void loadTab(String path) {
+        System.out.println(path);
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
             Parent root = loader.load();
@@ -59,7 +60,9 @@ public class AppController {
      * load tab từ điển.
      */
     public void loadDictionary() {
-        Helper.playSound("/ui/sound/click.wav");
+//        Helper.playSound("/ui/sound/click.wav");
+        Helper.playSound("/ui/sound/chooseSound.wav");
+//        Helper.playSound("/ui/sound/StardewValleyPickupitems.wav");
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = dictionaryButton;
         currentButton.getStyleClass().add("button-clicked");
@@ -74,7 +77,8 @@ public class AppController {
      * load tab google translate.
      */
     public void loadGoogleTranslate() {
-        Helper.playSound("/ui/sound/click.wav");
+//        Helper.playSound("/ui/sound/click.wav");
+        Helper.playSound("/ui/sound/chooseSound.wav");
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = googleTranslateButton;
         currentButton.getStyleClass().add("button-clicked");
@@ -89,7 +93,8 @@ public class AppController {
      * load tab learn.
      */
     public void loadLearn() {
-        Helper.playSound("/ui/sound/click.wav");
+//        Helper.playSound("/ui/sound/click.wav");
+        Helper.playSound("/ui/sound/chooseSound.wav");
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = learnButton;
         currentButton.getStyleClass().add("button-clicked");
@@ -104,14 +109,15 @@ public class AppController {
      * load tab game.
      */
     public void loadGame() {
-        Helper.playSound("/ui/sound/click.wav");
+//        Helper.playSound("/ui/sound/click.wav");
+        Helper.playSound("/ui/sound/chooseSound.wav");
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = gameButton;
         currentButton.getStyleClass().add("button-clicked");
         if (state == 5) textField.setText("");
         if (state != 4) {
             state = 4;
-            loadTab("fxml/Quiz.fxml");
+            loadTab("fxml/ChooseGame.fxml");
         }
     }
 
@@ -119,7 +125,8 @@ public class AppController {
      * load tab my note.
      */
     public void loadMyNote() {
-        Helper.playSound("/ui/sound/click.wav");
+//        Helper.playSound("/ui/sound/click.wav");
+        Helper.playSound("/ui/sound/chooseSound.wav");
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = myNoteButton;
         currentButton.getStyleClass().add("button-clicked");

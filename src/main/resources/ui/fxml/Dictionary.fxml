@@ -36,7 +36,7 @@
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <Button fx:id="pronounceButton" mnemonicParsing="false" onAction="#pronounceWord" prefHeight="40.0" stylesheets="@../css/App.css">
+                        <Button fx:id="pronounceButton" mnemonicParsing="false" onAction="#pronounceWord" prefHeight="40.0" styleClass="transparent-background" stylesheets="@../css/App.css">
                            <HBox.margin>
                               <Insets left="5.0" top="4.0" />
                            </HBox.margin>
