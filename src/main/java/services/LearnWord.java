@@ -9,7 +9,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import static model.Test.*;
+import static ui.App.dictionary;
+
+
 public class LearnWord {
     private int cntLearnerWords;
     // Lấy ngày hiện tại
