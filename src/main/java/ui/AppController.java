@@ -123,8 +123,8 @@ public class AppController {
         if (currentButton != null) currentButton.getStyleClass().remove("button-clicked");
         currentButton = myNoteButton;
         currentButton.getStyleClass().add("button-clicked");
-        textField.setText("");
         if (state != 5) {
+            textField.setText("");
             state = 5;
             loadTab("fxml/MyNote.fxml");
         }

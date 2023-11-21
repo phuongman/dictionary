@@ -15,7 +15,6 @@ import javafx.scene.text.*;
 import model.Word;
 import services.LearnWord;
 import services.TextToSpeech;
-import services.Wordle;
 
 public class LearnController {
 
