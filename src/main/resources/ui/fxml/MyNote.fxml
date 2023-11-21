@@ -127,7 +127,7 @@
                </VBox.margin>
             </Button>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-            <Button fx:id="helpButton" mnemonicParsing="false" prefHeight="56.0" prefWidth="146.0" styleClass="myNoteButton" stylesheets="@../css/App.css" text=" Help">
+            <Button fx:id="helpButton" mnemonicParsing="false" onAction="#help" prefHeight="56.0" prefWidth="146.0" styleClass="myNoteButton" stylesheets="@../css/App.css" text=" Help">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

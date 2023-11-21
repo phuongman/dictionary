@@ -14,7 +14,6 @@ import model.Myword;
 
 public class AddWordController {
     @FXML private Button cancelButton;
-    @FXML private Button okButton;
     @FXML private TextField textField;
 
     /**

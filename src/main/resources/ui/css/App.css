@@ -32,7 +32,6 @@
 
 #textField {
     -fx-background-radius: 30;
-    /*-fx-border-radius: 14 14 14 14;*/
 }
 
 .scroll-view-background {
@@ -131,4 +130,11 @@
 }
 .cancelButton {
     -fx-background-color: #bdbdbd;
+}
+.okHelpButton {
+    -fx-background-radius: 30;
+    -fx-background-color: #dedede;
+}
+.okHelpButton:hover {
+    -fx-background-color: #eeeeee;
 }

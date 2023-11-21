@@ -99,9 +99,9 @@
             <String fx:value="scroll-view-background" />
          </styleClass>
       </AnchorPane>
-      <Label fx:id="listWords" layoutX="130.0" layoutY="73.0" text="List Words" textFill="#d02020" visible="false">
+      <Label fx:id="listWords" layoutX="96.0" layoutY="73.0" text="List Words" visible="false">
          <font>
-            <Font name="Serif Bold Italic" size="20.0" />
+            <Font name="Serif Bold" size="30.0" />
          </font>
       </Label>
    </children>

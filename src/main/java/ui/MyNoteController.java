@@ -9,6 +9,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
@@ -16,11 +21,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.*;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Myword;
-import model.Word;
 import services.TextToSpeech;
 
 import java.io.IOException;
@@ -234,15 +239,19 @@ public class MyNoteController {
      */
     public void editWord() {
         Helper.playSound("/ui/sound/click.wav");
+        if (!checkExist()) return;
+
         textFlowView.setDisable(true);
         textFlowView.setVisible(false);
+        scrollView.setDisable(true);
+        scrollView.setVisible(false);
+
         textArea.setDisable(false);
         textArea.setVisible(true);
         textArea.setEditable(true);
         textArea.requestFocus();
         editing = true;
 
-        if (appController.textField.getText() == null || appController.textField.getText().isEmpty()) return;
         appController.curWord = appController.textField.getText();
         Myword word = App.mydictionary.lookup(appController.curWord);
         currentWordViewMyNote.setText(appController.curWord);
@@ -261,6 +270,8 @@ public class MyNoteController {
         textArea.setEditable(false);
         textArea.setDisable(true);
         textArea.setVisible(false);
+        scrollView.setDisable(false);
+        scrollView.setVisible(true);
         editing = false;
         lookupWordMyNote();
     }
@@ -299,4 +310,29 @@ public class MyNoteController {
         }
     }
 
+    /**
+     * Hướng dẫn.
+     */
+    public void help(ActionEvent e) {
+
+        Helper.playSound("/ui/sound/click.wav");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/Help.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            Stage appStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            stage.initOwner(appStage);
+
+            Scene scene = new Scene(root);
+
+            stage.setResizable(false);
+            stage.setTitle("Help");;
+            stage.getIcons().add(new Image(getClass().getResource("/ui/icon/help.png").toExternalForm()));
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (IOException exception) {
+            System.out.println("Help error");
+        }
+    }
 }
