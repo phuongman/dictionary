@@ -138,6 +138,14 @@ public class AppController {
     }
 
     /**
+     * Bấm nút tìm kiếm.
+     */
+    public void lookupWordButton() {
+        Helper.playSound("/ui/sound/click.wav");
+        lookupWord();
+    }
+
+    /**
      * load nghĩa của từ được chọn.
      */
     public void lookupWord() {

@@ -24,7 +24,7 @@
                         <Insets left="15.0" right="45.0" />
                      </padding>
                   </TextField>
-                  <Button fx:id="findingButton" layoutX="232.0" layoutY="28.0" mnemonicParsing="false" onAction="#lookupWord" prefHeight="55.0" prefWidth="55.0" stylesheets="@../css/App.css" />
+                  <Button fx:id="findingButton" layoutX="232.0" layoutY="28.0" mnemonicParsing="false" onAction="#lookupWordButton" prefHeight="55.0" prefWidth="55.0" stylesheets="@../css/App.css" />
                </children>
             </AnchorPane>
             <Button fx:id="dictionaryButton" mnemonicParsing="false" onAction="#loadDictionary" prefHeight="110.0" prefWidth="187.0" styleClass="appButton" stylesheets="@../css/App.css" text="Dictionary" wrapText="true">
