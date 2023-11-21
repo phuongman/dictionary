@@ -71,6 +71,7 @@ public class DictionaryController {
         if (appController.textField.getText() == null || appController.textField.getText().isEmpty()) return;
         appController.curWord = appController.textField.getText();
         Word word = App.dictionary.lookup(appController.curWord);
+        if (word == null) return;
 
         currentWordView.setText(appController.curWord);
         if (word.getWordPronounce() != null) currentPronounceView.setText(" " + word.getWordPronounce());

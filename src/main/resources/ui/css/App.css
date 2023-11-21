@@ -68,6 +68,7 @@
 
 .blue-background {
     -fx-background-color: #87CEFA;
+    /*-fx-background-color: linear-gradient(to bottom, #87CEFA, #039ED3);*/
 }
 
 .app-background {
@@ -118,6 +119,9 @@
 }
 #deleteButton {
     -fx-background-color: #f69988;
+}
+#helpButton {
+    -fx-background-color: #bdbdbd;
 }
 .deleteButton {
     -fx-background-color: #f69988;

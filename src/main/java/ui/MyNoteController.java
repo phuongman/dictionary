@@ -48,10 +48,18 @@ public class MyNoteController {
         }
         pronounceButtonMyNote.setVisible(false);
         loadListViewMyNote();
+
         textArea.focusedProperty().addListener((ov, oldV, newV) -> {
             if (!newV)  // focus lost
                 if (editing) endEditWord();
         });
+        textArea.setOnKeyPressed(e -> {
+            if (e.isControlDown() && e.getCode() == KeyCode.S) {
+                endEditWord();
+                appController.textField.requestFocus();
+            }
+        });
+
         Tooltip tooltip = new Tooltip("Save");
         tooltip.setShowDelay(javafx.util.Duration.millis(100));
         tooltip.setFont(Font.font(15));
@@ -72,7 +80,7 @@ public class MyNoteController {
         textFlowView.getChildren().clear();
         textArea.setDisable(true);
         textFlowView.setDisable(true);
-        pronounceButtonMyNote.setDisable(true);
+        pronounceButtonMyNote.setVisible(false);
     }
 
     /**
@@ -121,10 +129,17 @@ public class MyNoteController {
         if (appController.textField.getText() == null || appController.textField.getText().isEmpty()) return;
         appController.curWord = appController.textField.getText();
         Myword word = App.mydictionary.lookup(appController.curWord);
+        if (word.getWord() == null) {
+            clear();
+            return;
+        }
 
         currentWordViewMyNote.setText(appController.curWord);
+        textArea.setDisable(true);
+        textArea.setVisible(false);
         textFlowView.setDisable(false);
-        pronounceButtonMyNote.setDisable(false);
+        textFlowView.setVisible(true);
+        pronounceButtonMyNote.setVisible(true);
 
         textFlowView = new TextFlow();
         String[] lines = word.getMeaning().split("\n");
@@ -222,6 +237,7 @@ public class MyNoteController {
         textFlowView.setDisable(true);
         textFlowView.setVisible(false);
         textArea.setDisable(false);
+        textArea.setVisible(true);
         textArea.setEditable(true);
         textArea.requestFocus();
         editing = true;
@@ -243,8 +259,19 @@ public class MyNoteController {
         App.mydictionary.edit(newWord, appController.curWord);
 
         textArea.setEditable(false);
+        textArea.setDisable(true);
+        textArea.setVisible(false);
         editing = false;
         lookupWordMyNote();
+    }
+
+    /**
+     *
+     */
+    public void saveWord() {
+        Helper.playSound("/ui/sound/click.wav");
+        if (!editing) return;
+        endEditWord();
     }
 
     /**
