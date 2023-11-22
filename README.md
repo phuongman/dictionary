@@ -35,7 +35,7 @@ https://drive.google.com/file/d/1nKQ14il1BhXN77nEP7s-hgESEgN_NrEJ/view?usp=shari
 ## Cách chạy
 - Cài đặt JDK version 17 hoặc cao hơn (Đảm bảo rằng biến môi trường JAVA_HOME đã được đặt vào đúng thư mục JDK).
 - Cài đặt Maven (Apache Maven).
-- Clone repository về máy
+- Clone repository về máy.
 ```
   git clone https://github.com/phuongman/dictionary.git
 ```
