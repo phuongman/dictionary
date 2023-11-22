@@ -33,12 +33,16 @@
 https://drive.google.com/file/d/1nKQ14il1BhXN77nEP7s-hgESEgN_NrEJ/view?usp=sharing
 
 ## Cách chạy
-- Cài đặt JDK version 20
-- Cài đặt IntelliJ IDEA
-- Clone project về máy
-- Mở project bằng IntelliJ IDEA
-- Chạy file App.java trong thư mục src/main/java/dictionary
-
+- Cài đặt JDK version 17 hoặc cao hơn (Đảm bảo rằng biến môi trường JAVA_HOME đã được đặt vào đúng thư mục JDK).
+- Cài đặt Maven (Apache Maven).
+- Clone repository về máy
+```
+  git clone https://github.com/phuongman/dictionary.git
+```
+- Chạy với Maven.
+```
+  mvn clean javafx:run
+```
 
 
 

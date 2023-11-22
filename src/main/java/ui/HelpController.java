@@ -1,6 +1,6 @@
 package ui;
 
-import Help.Helper;
+import help.Helper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;

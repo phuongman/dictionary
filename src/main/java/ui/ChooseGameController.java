@@ -1,8 +1,7 @@
 package ui;
 
-import Help.Helper;
+import help.Helper;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
 public class ChooseGameController {
     public AppController appController;

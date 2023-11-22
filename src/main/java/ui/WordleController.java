@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import Help.Helper;
+import help.Helper;
 
 public class WordleController implements Initializable {
     private final String[] firstRow = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};

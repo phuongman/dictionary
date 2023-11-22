@@ -1,10 +1,7 @@
 package ui;
 
-import Help.Helper;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
+import help.Helper;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;

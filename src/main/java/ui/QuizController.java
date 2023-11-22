@@ -10,14 +10,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import services.Quiz.QuizManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-import Help.Helper;
+import help.Helper;
 
 class QuizService extends Service<Void> {
     private final long delayMillis;

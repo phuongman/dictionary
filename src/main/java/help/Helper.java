@@ -1,4 +1,4 @@
-package Help;
+package help;
 
 import javax.sound.sampled.*;
 import java.util.Objects;

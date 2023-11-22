@@ -24,6 +24,11 @@ public class App extends Application {
             stage.getIcons().add(new Image(getClass().getResource("/ui/icon/dictionaryIcon.png").toExternalForm()));
             stage.setResizable(false);
             stage.setScene(scene);
+            stage.setOnCloseRequest(e -> {
+                e.consume(); // Ngăn chặn sự kiện mặc định
+                System.exit(0);
+            });
+
             stage.show();
         }
         catch (IOException e) {

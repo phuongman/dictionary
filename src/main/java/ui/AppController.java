@@ -1,6 +1,6 @@
 package ui;
 
-import Help.Helper;
+import help.Helper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +9,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
-import java.util.Objects;
 
 import javafx.scene.layout.BorderPane;
 

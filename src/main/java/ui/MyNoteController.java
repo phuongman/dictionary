@@ -1,6 +1,6 @@
 package ui;
 
-import Help.Helper;
+import help.Helper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.*;
 import javafx.scene.text.Font;
@@ -326,7 +325,7 @@ public class MyNoteController {
             Scene scene = new Scene(root);
 
             stage.setResizable(false);
-            stage.setTitle("Help");;
+            stage.setTitle("help");;
             stage.getIcons().add(new Image(getClass().getResource("/ui/icon/help.png").toExternalForm()));
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
