@@ -14,7 +14,7 @@
 | Họ và tên           | MSSV      | Vai trò chính |
 | ------------------- | --------- |---------------|
 | Mẫn Thị Bích Phương | 22021119  | Backend       |
-| Nguyễn Văn Lợi      | 22021114  | Fontend       |
+| Nguyễn Văn Lợi      | 22021114  | Frontend      |
 
 ## Các chức năng
 1. Search word: Tìm kiếm từ
@@ -30,7 +30,7 @@
 ## UML Diagram
 
 ## Demo
-
+https://drive.google.com/file/d/1nKQ14il1BhXN77nEP7s-hgESEgN_NrEJ/view?usp=sharing
 
 ## Cách chạy
 - Cài đặt JDK version 20
