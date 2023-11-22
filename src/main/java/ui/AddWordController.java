@@ -40,7 +40,7 @@ public class AddWordController {
         if (textField.getText().isEmpty()) quit();
         // System.out.println("them tu :" + textField.getText());
 
-        Myword newWord = App.mydictionary.lookup(textField.getText());
+        Myword newWord = App.mydictionary.lookupMyWord(textField.getText());
 
         if (newWord.getWord() == null) {
             System.out.println("Dang them tu :" + textField.getText());

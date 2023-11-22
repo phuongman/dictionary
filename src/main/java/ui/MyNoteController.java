@@ -93,7 +93,7 @@ public class MyNoteController {
      */
     public boolean checkExist() {
         appController.curWord = appController.textField.getText();
-        Myword word = App.mydictionary.lookup(appController.curWord);
+        Myword word = App.mydictionary.lookupMyWord(appController.curWord);
         if (word.getWord() == null) return false;
         return true;
     }
@@ -133,7 +133,7 @@ public class MyNoteController {
     public void lookupWordMyNote() {
         if (appController.textField.getText() == null || appController.textField.getText().isEmpty()) return;
         appController.curWord = appController.textField.getText();
-        Myword word = App.mydictionary.lookup(appController.curWord);
+        Myword word = App.mydictionary.lookupMyWord(appController.curWord);
         if (word.getWord() == null) {
             clear();
             return;
@@ -253,7 +253,7 @@ public class MyNoteController {
         editing = true;
 
         appController.curWord = appController.textField.getText();
-        Myword word = App.mydictionary.lookup(appController.curWord);
+        Myword word = App.mydictionary.lookupMyWord(appController.curWord);
         currentWordViewMyNote.setText(appController.curWord);
         textArea.setText(word.getMeaning());
     }

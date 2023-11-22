@@ -8,7 +8,7 @@ public class Dictionary {
     /**
      * khai báo cây Trie.
      */
-    protected static Trie Trie;
+    private static Trie Trie;
     private static List<String> listWords = new ArrayList<>();
     /**
      * khai báo database.
