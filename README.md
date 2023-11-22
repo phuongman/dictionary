@@ -28,6 +28,7 @@
 9. Learn: Học từ vựng, mỗi ngày các bạn sẽ được gợi ý học 5, 10 hoặc 15 từ mới
 
 ## UML Diagram
+![uml](uml.png)
 
 ## Demo
 https://drive.google.com/file/d/1nKQ14il1BhXN77nEP7s-hgESEgN_NrEJ/view?usp=sharing
