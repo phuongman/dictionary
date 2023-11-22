@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Dictionary;
 import model.Mydictionary;
@@ -20,6 +21,7 @@ public class App extends Application {
             scene.getStylesheets().add(css);
 
             stage.setTitle("Dictionary");
+            stage.getIcons().add(new Image(getClass().getResource("/ui/icon/dictionaryIcon.png").toExternalForm()));
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
